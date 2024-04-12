@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class BehaviorTreeRunner : MonoBehaviour
 {
-	BehaviorTree tree;
+	private BehaviorTree _tree;
 
 	// Start is called before the first frame update
 	void Start()
 	{
-		tree = ScriptableObject.CreateInstance<BehaviorTree>();
+		_tree = ScriptableObject.CreateInstance<BehaviorTree>();
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		tree.Update();
+		_tree.Update();
 	}
 }

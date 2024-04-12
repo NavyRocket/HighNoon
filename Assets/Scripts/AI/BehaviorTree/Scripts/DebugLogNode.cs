@@ -5,6 +5,7 @@ using UnityEngine;
 public class DebugLogNode : ActionNode
 {
     public string message;
+
     protected override void OnStart()
     {
         Debug.Log($"{message}: OnStart");
