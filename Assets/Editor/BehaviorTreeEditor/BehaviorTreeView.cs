@@ -13,7 +13,8 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 public class BehaviorTreeView : GraphView
 {
 	public new class UxmlFactory : UxmlFactory<BehaviorTreeView, GraphView.UxmlTraits> { }
-	
+
+	public Action<NodeView> onNodeSelected;
 	BehaviorTree _tree;
 
 	public BehaviorTreeView()
@@ -41,6 +42,13 @@ public class BehaviorTreeView : GraphView
 		graphViewChanged -= OnGraphViewChanged;
 		DeleteElements(graphElements);
 		graphViewChanged += OnGraphViewChanged;
+
+		if (_tree.rootNode == null)
+		{
+			tree.rootNode = tree.CreateNode(typeof(RootNode)) as RootNode;
+			EditorUtility.SetDirty(tree);
+			AssetDatabase.SaveAssets();
+		}
 
 		// Create NodeView
 		tree.nodes.ForEach(n => CreateNodeView(n));
@@ -135,6 +143,7 @@ public class BehaviorTreeView : GraphView
 	void CreateNodeView(Node node)
 	{
 		NodeView nodeView = new NodeView(node);
+		nodeView.onNodeSelected = onNodeSelected;
 		AddElement(nodeView);
 	}
 }

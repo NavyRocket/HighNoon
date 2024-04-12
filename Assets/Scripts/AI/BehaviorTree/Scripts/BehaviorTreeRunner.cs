@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class BehaviorTreeRunner : MonoBehaviour
 {
-	private BehaviorTree _tree;
+	public BehaviorTree _tree;
 
 	// Start is called before the first frame update
 	void Start()
 	{
-		_tree = ScriptableObject.CreateInstance<BehaviorTree>();
+		_tree = _tree.Clone();
 	}
 
 	// Update is called once per frame

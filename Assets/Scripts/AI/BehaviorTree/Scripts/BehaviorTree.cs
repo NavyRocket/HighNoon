@@ -47,7 +47,7 @@ public class BehaviorTree : ScriptableObject
 		CompositeNode composite = parent as CompositeNode;
 		if (composite)
 		{
-            composite.children.Add(child);
+			composite.children.Add(child);
 		}
 
 		DecoratorNode decorator = parent as DecoratorNode;
@@ -55,40 +55,65 @@ public class BehaviorTree : ScriptableObject
 		{
 			decorator.child = child;
 		}
+
+		RootNode root = parent as RootNode;
+		if (root)
+		{
+			root.child = child;
+		}
 	}
 
 	public void RemoveChild(Node parent, Node child)
 	{
 
-        CompositeNode composite = parent as CompositeNode;
-        if (composite)
-        {
-            composite.children.Remove(child);
-        }
+		CompositeNode composite = parent as CompositeNode;
+		if (composite)
+		{
+			composite.children.Remove(child);
+		}
 
-        DecoratorNode decorator = parent as DecoratorNode;
-        if (decorator)
-        {
-            decorator.child = null;
-        }
-    }
+		DecoratorNode decorator = parent as DecoratorNode;
+		if (decorator)
+		{
+			decorator.child = null;
+		}
+
+		RootNode root = parent as RootNode;
+		if (root)
+		{
+			root.child = null;
+		}
+	}
 
 	public List<Node> GetChildren(Node parent)
 	{
 		List<Node> children = new List<Node>();
 
-        CompositeNode composite = parent as CompositeNode;
-        if (composite)
-        {
+		CompositeNode composite = parent as CompositeNode;
+		if (composite)
+		{
 			return composite.children;
-        }
+		}
 
-        DecoratorNode decorator = parent as DecoratorNode;
-        if (decorator)
-        {
-            children.Add(decorator.child);
-        }
+		DecoratorNode decorator = parent as DecoratorNode;
+		if (decorator && decorator.child != null)
+		{
+			children.Add(decorator.child);
+		}
+
+		RootNode root = parent as RootNode;
+		if (root && root.child != null)
+		{
+			children.Add(root.child);
+		}
 
 		return children;
-    }
+	}
+
+	public BehaviorTree Clone()
+	{
+		BehaviorTree tree = Instantiate(this);
+		tree.rootNode = rootNode.Clone();
+		return tree;
+	}
 }

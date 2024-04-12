@@ -28,20 +28,25 @@ public class BehaviorTreeEditor : EditorWindow
 		var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Editor/BehaviorTreeEditor/BehaviorTreeEditor.uss");
 		root.styleSheets.Add(styleSheet);
 
+		_treeView.focusable = true;
 		_treeView = root.Q<BehaviorTreeView>();
 		_inspectorView = root.Q<InspectorView>();
+		_treeView.onNodeSelected = OnNodeSelectionChanged;
 
-		_treeView.focusable = true;
-	
-		OnSelectionChange();
+        OnSelectionChange();
 	}
 
 	private void OnSelectionChange()
 	{
 		BehaviorTree tree = Selection.activeObject as BehaviorTree;
-		if (tree)
+		if (tree && AssetDatabase.CanOpenAssetInEditor(tree.GetInstanceID()))
 		{
 			_treeView.PopulateView(tree);
 		}
 	}
+
+    private void OnNodeSelectionChanged(NodeView nodeView)
+    {
+		_inspectorView.UpdateSelection(nodeView);
+    }
 }
