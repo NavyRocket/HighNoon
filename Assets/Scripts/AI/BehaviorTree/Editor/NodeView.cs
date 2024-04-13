@@ -36,16 +36,16 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
 		else if (node is CompositeNode)
 		{
 			AddToClassList("composite");
-        }
-        else if (node is DecoratorNode)
+		}
+		else if (node is DecoratorNode)
 		{
 			AddToClassList("decorator");
-        }
-        else if (node is RootNode)
+		}
+		else if (node is RootNode)
 		{
 			AddToClassList("root");
-        }
-    }
+		}
+	}
 
 	private void CreateOutputPorts()
 	{
@@ -115,5 +115,45 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
 		{
 			onNodeSelected.Invoke(this);
 		}	
+	}
+
+	public void SortChildren()
+	{
+		CompositeNode composite = node as CompositeNode;
+		if (composite)
+		{
+			composite.children.Sort(SortByHorizontalPosition);
+		}
+	}
+
+	private int SortByHorizontalPosition(Node left, Node right)
+	{
+		return left.position.x < right.position.x ? -1 : 1;
+	}
+
+	public void UpdateState()
+	{
+		RemoveFromClassList("running");
+		RemoveFromClassList("success");
+		RemoveFromClassList("failure");
+
+		if (Application.isPlaying)
+		{
+			switch (node.state)
+			{
+			case Node.State.Running:
+				if (node.started)
+				{
+					AddToClassList("running");
+				}
+				break;
+			case Node.State.Success:
+				AddToClassList("success");
+				break;
+			case Node.State.Failure:
+				AddToClassList("failure");
+				break;
+			}
+		}
 	}
 }

@@ -62,7 +62,8 @@ public class BehaviorTreeView : GraphView
 		tree.nodes.ForEach(n => CreateNodeView(n));
 
         // Create Edge
-        tree.nodes.ForEach(n => {
+        tree.nodes.ForEach(n =>
+		{
 			List<Node> children = tree.GetChildren(n);
 			children.ForEach(c =>
 			{
@@ -114,6 +115,15 @@ public class BehaviorTreeView : GraphView
 			});
 		}
 
+		if (graphViewChange.movedElements != null)
+		{
+			nodes.ForEach((n) =>
+			{
+				NodeView view = n as NodeView;
+				view.SortChildren();
+			});
+		}
+
 		return graphViewChange;
 	}
 
@@ -153,5 +163,14 @@ public class BehaviorTreeView : GraphView
 		NodeView nodeView = new NodeView(node);
 		nodeView.onNodeSelected = onNodeSelected;
 		AddElement(nodeView);
+	}
+
+	public void UpdateNodeStates()
+	{
+		nodes.ForEach(n =>
+		{
+			NodeView view = n as NodeView;
+			view.UpdateState();
+		});
 	}
 }

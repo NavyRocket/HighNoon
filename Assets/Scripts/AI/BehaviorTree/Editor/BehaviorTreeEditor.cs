@@ -1,3 +1,4 @@
+using System;
 using UnityEditor;
 using UnityEditor.Callbacks;
 using UnityEngine;
@@ -48,17 +49,73 @@ public class BehaviorTreeEditor : EditorWindow
 		OnSelectionChange();
 	}
 
+	private void OnEnable()
+	{
+		EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
+		EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
+	}
+
+	private void OnDisable()
+	{
+
+	}
+
+	private void OnPlayModeStateChanged(PlayModeStateChange change)
+	{
+		switch (change)
+		{
+			case PlayModeStateChange.EnteredEditMode:
+				OnSelectionChange();
+				break;
+			case PlayModeStateChange.ExitingEditMode:
+				break;
+			case PlayModeStateChange.EnteredPlayMode:
+				OnSelectionChange();
+				break;
+			case PlayModeStateChange.ExitingPlayMode:
+				break;
+		}
+	}
+
 	private void OnSelectionChange()
 	{
 		BehaviorTree tree = Selection.activeObject as BehaviorTree;
-		if (tree && AssetDatabase.CanOpenAssetInEditor(tree.GetInstanceID()))
+		if (!tree)
 		{
-			_treeView.PopulateView(tree);
+			if (Selection.activeGameObject)
+			{
+				BehaviorTreeRunner runner = Selection.activeGameObject.GetComponent<BehaviorTreeRunner>();
+				if (runner)
+				{
+					tree = runner.tree;
+				}
+			}
 		}
+
+		if (Application.isPlaying)
+		{
+			if (tree)
+			{
+				_treeView.PopulateView(tree);
+			}
+		}
+		else
+		{
+			if (tree && AssetDatabase.CanOpenAssetInEditor(tree.GetInstanceID()))
+			{
+				_treeView.PopulateView(tree);
+			}
+		}
+
 	}
 
 	private void OnNodeSelectionChanged(NodeView nodeView)
 	{
 		_inspectorView.UpdateSelection(nodeView);
+	}
+
+	private void OnInspectorUpdate()
+	{
+		_treeView?.UpdateNodeStates();
 	}
 }

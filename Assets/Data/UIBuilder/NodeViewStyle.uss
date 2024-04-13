@@ -74,10 +74,22 @@
 #title {
     -unity-font-style: bold;
     font-size: 16px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 4px;
+    padding-right: 4px;
+    padding-bottom: 2px;
+    padding-left: 4px;
 }
 
 #description {
     font-size: 12px;
+    padding-top: 2px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
 }
 
 #divider {
@@ -100,4 +112,55 @@
 .root #input {
     background-color: rgb(255, 82, 84);
     min-height: 24px;
+}
+
+#node-state {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.running #node-state {
+    background-color: rgba(255, 234, 0, 0.5);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.success #node-state {
+    background-color: rgba(175, 252, 65, 0.5);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.failure #node-state {
+    background-color: rgba(239, 35, 60, 0.5);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
 }

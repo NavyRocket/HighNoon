@@ -4,6 +4,7 @@ using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using Unity.VisualScripting;
+using TreeEditor;
 
 [CreateAssetMenu()]
 public class BehaviorTree : ScriptableObject
@@ -32,8 +33,12 @@ public class BehaviorTree : ScriptableObject
 		Undo.RecordObject(this, "Behavior Tree (Create Node)");
 		nodes.Add(node);
 
-		AssetDatabase.AddObjectToAsset(node, this);
+		if (!Application.isPlaying)
+		{
+			AssetDatabase.AddObjectToAsset(node, this);
+		}
 		Undo.RegisterCreatedObjectUndo(node, "Behavior Tree (Create Node)");
+		
 		AssetDatabase.SaveAssets();
 
 		return node;
@@ -130,10 +135,26 @@ public class BehaviorTree : ScriptableObject
 	}
 #endif
 
+	public void Traverse(Node node, System.Action<Node> visiter)
+	{
+		if (node)
+		{
+			visiter.Invoke(node);
+			List<Node> children = GetChildren(node);
+			children.ForEach((n) => Traverse(n, visiter));
+		}
+	}
+
 	public BehaviorTree Clone()
 	{
 		BehaviorTree tree = Instantiate(this);
 		tree.rootNode = rootNode.Clone();
+		tree.nodes = new List<Node>();
+		Traverse(tree.rootNode, (n) =>
+		{
+			tree.nodes.Add(n);
+		});
+
 		return tree;
 	}
 }
