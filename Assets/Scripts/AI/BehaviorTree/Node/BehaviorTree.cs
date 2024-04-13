@@ -11,6 +11,7 @@ public class BehaviorTree : ScriptableObject
 {
 	public Node rootNode;
 	public Node.State treeState = Node.State.Running;
+	public Blackboard blackboard = new Blackboard();
 	public List<Node> nodes = new List<Node>();
 
 	public Node.State Update()
@@ -156,5 +157,14 @@ public class BehaviorTree : ScriptableObject
 		});
 
 		return tree;
+	}
+
+	// AIAgent
+	public void Bind()
+	{
+		Traverse(rootNode, (node) =>
+		{
+			node.blackboard = blackboard;
+		});
 	}
 }

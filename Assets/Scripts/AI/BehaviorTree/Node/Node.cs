@@ -11,6 +11,9 @@ public abstract class Node : ScriptableObject
 		Failure
 	}
 
+    [HideInInspector] public Blackboard blackboard;
+	[TextArea] public string description;
+
 	[HideInInspector] public State state = State.Running;
     [HideInInspector] public bool started = false;
     [HideInInspector] public string guid;

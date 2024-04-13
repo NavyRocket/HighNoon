@@ -90,6 +90,8 @@
     padding-right: 4px;
     padding-bottom: 4px;
     padding-left: 4px;
+    white-space: normal;
+    max-width: 150px;
 }
 
 #divider {
@@ -112,18 +114,6 @@
 .root #input {
     background-color: rgb(255, 82, 84);
     min-height: 24px;
-}
-
-#node-state {
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
-    border-bottom-left-radius: 8px;
 }
 
 .running #node-state {
