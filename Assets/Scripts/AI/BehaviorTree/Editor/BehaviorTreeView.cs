@@ -26,11 +26,19 @@ public class BehaviorTreeView : GraphView
 		this.AddManipulator(new SelectionDragger());
 		this.AddManipulator(new RectangleSelector());
 
-		var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Editor/BehaviorTreeEditor/BehaviorTreeEditor.uss");
+		var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Data/UIBuilder/BehaviorTreeEditor.uss");
 		styleSheets.Add(styleSheet);
+
+		Undo.undoRedoPerformed += OnUndoRedo;
 	}
 
-	NodeView FindNodeView(Node node)
+    private void OnUndoRedo()
+    {
+		PopulateView(_tree);
+		AssetDatabase.SaveAssets();
+    }
+
+    NodeView FindNodeView(Node node)
 	{
 		return GetNodeByGuid(node.guid) as NodeView;
 	}

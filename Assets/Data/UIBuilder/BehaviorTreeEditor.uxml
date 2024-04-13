@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/Editor/BehaviorTreeEditor/BehaviorTreeEditor.uss?fileID=7433441132597879392&amp;guid=749a1856617f7224e9e1a9148e10dea2&amp;type=3#BehaviorTreeEditor" />
+    <Style src="project://database/Assets/Data/UIBuilder/BehaviorTreeEditor/BehaviorTreeEditor.uss?fileID=7433441132597879392&amp;guid=749a1856617f7224e9e1a9148e10dea2&amp;type=3#BehaviorTreeEditor" />
     <uie:Toolbar name="Toolbar">
         <uie:ToolbarMenu tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" text="Assets" />
     </uie:Toolbar>
