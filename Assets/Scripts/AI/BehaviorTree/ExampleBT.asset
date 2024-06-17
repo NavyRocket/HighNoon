@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7080ba0f2be959b439abd704e43f5860, type: 3}
   m_Name: RepeatNode
   m_EditorClassIdentifier: 
+  blackboard:
+    blackboardExample: {x: 0, y: 0, z: 0}
+  description: Decorator Node
   state: 0
   started: 0
   guid: 006e89548ed08a74480e55fa26705be8
@@ -29,12 +32,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c738017af8f391c4b9f3f32ccef89171, type: 3}
   m_Name: SequenceNode
   m_EditorClassIdentifier: 
+  blackboard:
+    blackboardExample: {x: 0, y: 0, z: 0}
+  description: Composite Node
   state: 0
   started: 0
   guid: cffb32eead7d40d4bb970fe9282898e7
-  position: {x: 220, y: 167.99997}
+  position: {x: 161.33334, y: 178.66667}
   children:
   - {fileID: -778078999794192592}
+  - {fileID: -28696658437044895}
 --- !u!114 &-778078999794192592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,10 +54,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4a43400bc1deb743afc06f125ae490c, type: 3}
   m_Name: WaitNode
   m_EditorClassIdentifier: 
+  blackboard:
+    blackboardExample: {x: 0, y: 0, z: 0}
+  description: Action Node
   state: 0
   started: 0
   guid: e0999e03dd061284bb1a20486ef0144a
   position: {x: -14.666687, y: 328}
+  duration: 1
+--- !u!114 &-28696658437044895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4a43400bc1deb743afc06f125ae490c, type: 3}
+  m_Name: WaitNode
+  m_EditorClassIdentifier: 
+  blackboard:
+    blackboardExample: {x: 0, y: 0, z: 0}
+  description: 
+  state: 0
+  started: 0
+  guid: 97c4387375d27dd40844385769f2867e
+  position: {x: 277.99997, y: 328}
   duration: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -62,15 +92,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 205e11ec795d4a14da311e1b5b40da79, type: 3}
-  m_Name: New Behavior Tree
+  m_Name: ExampleBT
   m_EditorClassIdentifier: 
   rootNode: {fileID: 1745662852220605576}
   treeState: 0
+  blackboard:
+    blackboardExample: {x: 0, y: 0, z: 0}
   nodes:
   - {fileID: 1745662852220605576}
   - {fileID: -778078999794192592}
   - {fileID: -4896677510950966456}
   - {fileID: -5983227488400864217}
+  - {fileID: -28696658437044895}
 --- !u!114 &1745662852220605576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,6 +116,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2802924c2b8a67843b1254427c45264c, type: 3}
   m_Name: RootNode
   m_EditorClassIdentifier: 
+  blackboard:
+    blackboardExample: {x: 0, y: 0, z: 0}
+  description: Root Node
   state: 0
   started: 0
   guid: d3b765a8bdf528b41aeb940f65790058
