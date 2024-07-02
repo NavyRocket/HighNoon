@@ -154,3 +154,12 @@
     right: 0;
     bottom: 0;
 }
+
+#child-divider {
+    min-height: 1px;
+    background-color: rgb(138, 138, 138);
+}
+
+.action #child-divider {
+    display: none;
+}

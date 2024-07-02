@@ -14,6 +14,11 @@ public class BehaviorTree : ScriptableObject
 	public Blackboard blackboard = new Blackboard();
 	public List<Node> nodes = new List<Node>();
 
+	public void Initialize(MonoBehaviour monoBehaviour)
+	{
+		blackboard.Initialize(monoBehaviour);
+	}
+
 	public Node.State Update()
 	{
 		if (treeState == Node.State.Running)
@@ -61,7 +66,7 @@ public class BehaviorTree : ScriptableObject
 		if (composite)
 		{
 			Undo.RecordObject(composite, "Behavior Tree (Add Child)");
-			composite.children.Add(child);
+			composite.Add(child);
 			EditorUtility.SetDirty(composite);
 		}
 
@@ -89,7 +94,7 @@ public class BehaviorTree : ScriptableObject
 		if (composite)
 		{
 			Undo.RecordObject(composite, "Behavior Tree (Remove Child)");
-			composite.children.Remove(child);
+			composite.Remove(child);
 			EditorUtility.SetDirty(composite);
 		}
 
