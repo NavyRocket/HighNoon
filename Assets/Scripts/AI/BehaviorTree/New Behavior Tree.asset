@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7080ba0f2be959b439abd704e43f5860, type: 3}
   m_Name: RepeatNode
   m_EditorClassIdentifier: 
+  blackboard:
+    example: {x: 0, y: 0, z: 0}
+  description: Decorator Node
   state: 0
   started: 0
   guid: 006e89548ed08a74480e55fa26705be8
-  position: {x: 11.3333435, y: 34}
+  position: {x: 11.3333435, y: 62.66667}
   child: {fileID: -4896677510950966456}
 --- !u!114 &-4896677510950966456
 MonoBehaviour:
@@ -29,12 +32,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c738017af8f391c4b9f3f32ccef89171, type: 3}
   m_Name: SequenceNode
   m_EditorClassIdentifier: 
+  blackboard:
+    example: {x: 0, y: 0, z: 0}
+  description: Composite Node
   state: 0
   started: 0
   guid: cffb32eead7d40d4bb970fe9282898e7
-  position: {x: 220, y: 167.99997}
+  position: {x: 232.66666, y: 205.33336}
   children:
   - {fileID: -778078999794192592}
+  - {fileID: -3604674707569586107}
+--- !u!114 &-3604674707569586107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c56bae11d5edf81479390f7869c3893e, type: 3}
+  m_Name: DebugLogNode
+  m_EditorClassIdentifier: 
+  blackboard:
+    example: {x: 0, y: 0, z: 0}
+  description: Debug Message
+  state: 0
+  started: 0
+  guid: 4698c4d2a23fa0340a0990c20541472e
+  position: {x: 360.77338, y: 348}
+  message: 
 --- !u!114 &-778078999794192592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,10 +74,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4a43400bc1deb743afc06f125ae490c, type: 3}
   m_Name: WaitNode
   m_EditorClassIdentifier: 
+  blackboard:
+    example: {x: 0, y: 0, z: 0}
+  description: Action Node
   state: 0
   started: 0
   guid: e0999e03dd061284bb1a20486ef0144a
-  position: {x: -14.666687, y: 328}
+  position: {x: 50.533325, y: 348}
   duration: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -66,11 +96,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rootNode: {fileID: 1745662852220605576}
   treeState: 0
+  blackboard:
+    example: {x: 0, y: 0, z: 0}
   nodes:
   - {fileID: 1745662852220605576}
   - {fileID: -778078999794192592}
   - {fileID: -4896677510950966456}
   - {fileID: -5983227488400864217}
+  - {fileID: -3604674707569586107}
 --- !u!114 &1745662852220605576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,8 +116,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2802924c2b8a67843b1254427c45264c, type: 3}
   m_Name: RootNode
   m_EditorClassIdentifier: 
+  blackboard:
+    example: {x: 0, y: 0, z: 0}
+  description: Root Node
   state: 0
   started: 0
   guid: d3b765a8bdf528b41aeb940f65790058
-  position: {x: 11.333313, y: -87.333336}
+  position: {x: 11.3333435, y: -85.33333}
   child: {fileID: -5983227488400864217}
