@@ -9,6 +9,7 @@ public class PixelizeFeature : ScriptableRendererFeature
     {
         public RenderPassEvent renderPassEvent = RenderPassEvent.BeforeRenderingPostProcessing;
         public int screenHeight = 144;
+        public FilterMode filterMode = FilterMode.Point;
     }
 
     [SerializeField]

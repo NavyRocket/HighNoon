@@ -34,7 +34,7 @@ public class PixelizePass : ScriptableRenderPass
         descriptor.height = pixelScreenHeight;
         descriptor.width = pixelScreenWidth;
 
-        cmd.GetTemporaryRT(pixelBufferID, descriptor, FilterMode.Point);
+        cmd.GetTemporaryRT(pixelBufferID, descriptor, settings.filterMode);
         pixelBuffer = new RenderTargetIdentifier(pixelBufferID);
     }
 
