@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameObjectPool<T> where T : class
+public class ObjectPool<T> where T : class
 {
     public delegate T CreateFuncDel();
     CreateFuncDel createFunc;
 
     Queue<T> poolQueue = new Queue<T>();
 
-    public GameObjectPool(CreateFuncDel createFuncDel, int count)
+    public ObjectPool(CreateFuncDel createFuncDel, int count)
     {
         createFunc = createFuncDel;
         Allocation(count);
