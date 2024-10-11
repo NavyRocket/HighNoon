@@ -44,6 +44,8 @@ public class PlayerAnimatonHandler : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(1))
             {
+                bool faceRight = transform.position.x <= GameInstance.Instance.CursorWorldPosition().x;
+                transform.localRotation = Quaternion.Euler(0f, faceRight ? 0f : 180f, 0f);
                 controller.draw = true;
                 animator.SetTrigger("Draw");
             }

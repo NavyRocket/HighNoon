@@ -8,6 +8,8 @@ public class RootNode : Node
 
     protected override void OnStart()
     {
+        if (blackboard == null) Debug.Log("Blackboard is null");
+        if (blackboard.animator == null) Debug.Log("Animator is null");
         blackboard.animator.speed = 2f;
     }
 

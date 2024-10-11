@@ -18,7 +18,7 @@ public class RepeatNodeEditor : Editor
 
         _repeatTypeProp = serializedObject.FindProperty("_repeatType");
         _countProp = serializedObject.FindProperty("_count");
-        _durationProp = serializedObject.FindProperty("_duration");
+        _durationProp = serializedObject.FindProperty("_durationScope");
     }
 
     public override void OnInspectorGUI()

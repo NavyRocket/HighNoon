@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
 
+/*
 [CustomEditor(typeof(ParallelNode))]
 public class ParallelNodeEditor : Editor
 {
@@ -61,3 +62,4 @@ public class ParallelNodeEditor : Editor
         serializedObject.ApplyModifiedProperties();
     }
 }
+*/

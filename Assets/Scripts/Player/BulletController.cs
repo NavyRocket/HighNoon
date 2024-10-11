@@ -41,7 +41,7 @@ public class BulletController : MonoBehaviour
         vector = new Vector3(controller.transform.eulerAngles.y == 0 ? Mathf.Cos(controller.gunRadian) : -Mathf.Cos(controller.gunRadian),
             Mathf.Sin(controller.gunRadian), 0f);
     }
-
+ 
     public float Damage { get { return damage; } }
 
     static int GetIndexOfMinValue(List<float> list)

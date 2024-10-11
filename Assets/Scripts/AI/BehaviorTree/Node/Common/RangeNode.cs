@@ -15,7 +15,7 @@ public class RangeNode : DecoratorNode
     protected override void OnStart()
     {
         float distance = (blackboard.owner.transform.position - blackboard.target.transform.position).magnitude;
-        success = inRange ? range < distance : range >= distance;
+        success = inRange ? distance < range : distance >= range;
     }
 
     protected override void OnStop()
@@ -27,7 +27,7 @@ public class RangeNode : DecoratorNode
         if (!checkOnce)
         {
             float distance = (blackboard.owner.transform.position - blackboard.target.transform.position).magnitude;
-            success = inRange ? range < distance : range >= distance;
+            success = inRange ? distance < range : distance >= range;
         }
 
         if (success)

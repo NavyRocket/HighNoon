@@ -1,0 +1,1192 @@
+fileFormatVersion: 2
+guid: 210e25d219ebf514e96b55ef66bf9158
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MobB_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2880
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c05328f805e7d5646b5f7af0560097b3
+      internalID: -427095417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 2880
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f929a754fb46a6d4aa8a30a39730983c
+      internalID: -344163353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Idle_2
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 2880
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8008b42a1c1217a4e857fce32c01941a
+      internalID: 960098973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Idle_3
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 2880
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bedd4e1741610cf49ae829e3f4c90b8a
+      internalID: -1578967727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Idle_4
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 2880
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa38a534e318f1440b5f699599f04df6
+      internalID: 1960158700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Idle_5
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 2880
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a4cdefc8acc40c42886629499e3b445
+      internalID: 236500788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Atk1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1920
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 175b8706da1dbe24487f3d7eb366a956
+      internalID: 1410470399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Atk1_1
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 1920
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2552530b2ec9e14d82c55d8c6fb57e1
+      internalID: 698141705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Atk1_2
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 1920
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29c720afd9a1fcd449f22cccfcc4fabc
+      internalID: 1865997916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Atk1_3
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 1920
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f639c1ee4406ede4b9dff926bd8d8372
+      internalID: 1125099643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Atk1_4
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 1920
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1e20fdc9d7afc6479254bb9ec1be41f
+      internalID: -1162365365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Atk1_5
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 1920
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d399fb457033664eb95e0d663f9f825
+      internalID: -1026387299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Atk1_6
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 1920
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0e4dc88f9887794cbc1094aaf202f83
+      internalID: -731311866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Atk1_7
+      rect:
+        serializedVersion: 2
+        x: 5600
+        y: 1920
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 915985e260ea17b46be2db4717b7945a
+      internalID: 2147419756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Atk1_8
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 1920
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad3e1e7a290a5fe44b371184900411c6
+      internalID: -1037219667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Atk1_9
+      rect:
+        serializedVersion: 2
+        x: 7200
+        y: 1920
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7165abe94d4fd534e84ffac03071f05c
+      internalID: -1539827238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Atk1_10
+      rect:
+        serializedVersion: 2
+        x: 8000
+        y: 1920
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 830bc115e4d54d84a84d82d917e93739
+      internalID: -893712267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Atk1_11
+      rect:
+        serializedVersion: 2
+        x: 8800
+        y: 1920
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4646f8faf5629604fb3378e0d65f665c
+      internalID: -1284672675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Atk1_12
+      rect:
+        serializedVersion: 2
+        x: 9600
+        y: 1920
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c10f0d2d7024c6489f2a081a527272a
+      internalID: 1952625432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Atk1_13
+      rect:
+        serializedVersion: 2
+        x: 10400
+        y: 1920
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e0d35f191cedc243b57522a8825ffdf
+      internalID: -1827847321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Atk1_14
+      rect:
+        serializedVersion: 2
+        x: 11200
+        y: 1920
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fe41e024dcff1e44951e287fc3c679b
+      internalID: 1744162264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Atk1_15
+      rect:
+        serializedVersion: 2
+        x: 12000
+        y: 1920
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 172e83ead26963242b22b7884cac3cde
+      internalID: 1406838334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Atk1_16
+      rect:
+        serializedVersion: 2
+        x: 12800
+        y: 1920
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb57a2dba21a1c24bad7b22b77f5388d
+      internalID: 835825861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Atk1_17
+      rect:
+        serializedVersion: 2
+        x: 13600
+        y: 1920
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f22399ed382ab284c9c35a8725cf7fc6
+      internalID: -1366350818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Atk2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24ebf6133bf3a8143823b79fab897788
+      internalID: 259247460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Atk2_1
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 960
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 728ecf3af68b255448977151dbe53df0
+      internalID: 503787069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Atk2_2
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 960
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2db0a82c7c7885a4c834dade27d64a3a
+      internalID: 1922562099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Atk2_3
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 960
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed47a9a363d80334f9c5b02e9c3cc76c
+      internalID: -1451981526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Atk2_4
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 960
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: becfb856575deae4abdd487904956568
+      internalID: 2087631496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Atk2_5
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 960
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb908cbeb076f2d46b28e17d1883bbef
+      internalID: -1855304149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Atk2_6
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 966
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d70a404a5a138c34d8fb5d5a6f8d015a
+      internalID: 312284859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Atk2_7
+      rect:
+        serializedVersion: 2
+        x: 5600
+        y: 960
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92aa4c1b3b64f9649b864ffb6bc83857
+      internalID: -250334371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Atk2_8
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 960
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3b6e65a4771cc44a82f7b9a72f6be13
+      internalID: -713910701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Atk2_9
+      rect:
+        serializedVersion: 2
+        x: 7200
+        y: 960
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9d7d5a2e7578924c96dec6a74000b61
+      internalID: 888656732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Atk2_10
+      rect:
+        serializedVersion: 2
+        x: 8000
+        y: 960
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2836ec43451054a44b573894577e2d08
+      internalID: 884057775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Atk2_11
+      rect:
+        serializedVersion: 2
+        x: 8800
+        y: 960
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c443403a335a844e8f59d63b943139d
+      internalID: 268813315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Atk2_12
+      rect:
+        serializedVersion: 2
+        x: 9600
+        y: 960
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb805d26a8e1a9a4591916b913cafcb2
+      internalID: -1058176383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Atk2_13
+      rect:
+        serializedVersion: 2
+        x: 10400
+        y: 960
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91f531eb88540274e8b955873c827d17
+      internalID: 1621079800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Atk2_14
+      rect:
+        serializedVersion: 2
+        x: 11200
+        y: 960
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29cc761d24a2ad040bac4d06109be59a
+      internalID: 883145817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Atk2_15
+      rect:
+        serializedVersion: 2
+        x: 12000
+        y: 960
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88634e683abf90e46b4fa97dd758e046
+      internalID: 1676552280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Atk2_16
+      rect:
+        serializedVersion: 2
+        x: 12800
+        y: 960
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 835cfaf44b249b9468e59d2bc400f652
+      internalID: -1554763266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Atk2_17
+      rect:
+        serializedVersion: 2
+        x: 13600
+        y: 960
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1c1ad96fbde99b439cf2fdf2f490e69
+      internalID: -633285871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Die_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc0c6ca87f9cdbf42a4058ee3f4debf3
+      internalID: -1473874435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Die_1
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ab71a330b259824c8a1b8f0a2742727
+      internalID: -1429778322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Die_2
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1286a1f6a933ab247a851d9f64f99f59
+      internalID: -768829126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Die_3
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 0
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 209b07d923e771140b201c759ace7a0b
+      internalID: -1531801615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Die_4
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 0
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d00cdea8c2fd874ea3160bd3300a3a8
+      internalID: -1530981181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Die_5
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 0
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46b6fa4ef7a2f4e4b8dd1f16bb7b520f
+      internalID: -23763793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobB_Die_6
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 0
+        width: 800
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50e638e9951736547b4b3ba0c015151b
+      internalID: -2095145137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 7f4ff0891ae1e2c489384bfafd389857
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      MobB_Atk1_0: 1410470399
+      MobB_Atk1_1: 698141705
+      MobB_Atk1_10: -893712267
+      MobB_Atk1_11: -1284672675
+      MobB_Atk1_12: 1952625432
+      MobB_Atk1_13: -1827847321
+      MobB_Atk1_14: 1744162264
+      MobB_Atk1_15: 1406838334
+      MobB_Atk1_16: 835825861
+      MobB_Atk1_17: -1366350818
+      MobB_Atk1_2: 1865997916
+      MobB_Atk1_3: 1125099643
+      MobB_Atk1_4: -1162365365
+      MobB_Atk1_5: -1026387299
+      MobB_Atk1_6: -731311866
+      MobB_Atk1_7: 2147419756
+      MobB_Atk1_8: -1037219667
+      MobB_Atk1_9: -1539827238
+      MobB_Atk2_0: 259247460
+      MobB_Atk2_1: 503787069
+      MobB_Atk2_10: 884057775
+      MobB_Atk2_11: 268813315
+      MobB_Atk2_12: -1058176383
+      MobB_Atk2_13: 1621079800
+      MobB_Atk2_14: 883145817
+      MobB_Atk2_15: 1676552280
+      MobB_Atk2_16: -1554763266
+      MobB_Atk2_17: -633285871
+      MobB_Atk2_2: 1922562099
+      MobB_Atk2_3: -1451981526
+      MobB_Atk2_4: 2087631496
+      MobB_Atk2_5: -1855304149
+      MobB_Atk2_6: 312284859
+      MobB_Atk2_7: -250334371
+      MobB_Atk2_8: -713910701
+      MobB_Atk2_9: 888656732
+      MobB_Die_0: -1473874435
+      MobB_Die_1: -1429778322
+      MobB_Die_2: -768829126
+      MobB_Die_3: -1531801615
+      MobB_Die_4: -1530981181
+      MobB_Die_5: -23763793
+      MobB_Die_6: -2095145137
+      MobB_Idle_0: -427095417
+      MobB_Idle_1: -344163353
+      MobB_Idle_2: 960098973
+      MobB_Idle_3: -1578967727
+      MobB_Idle_4: 1960158700
+      MobB_Idle_5: 236500788
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
