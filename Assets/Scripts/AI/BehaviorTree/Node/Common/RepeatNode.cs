@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class RepeatNode : DecoratorNode
@@ -13,7 +14,8 @@ public class RepeatNode : DecoratorNode
 
     [HideInInspector][SerializeField] private RepeatType _repeatType = RepeatType.Infinite;
     [HideInInspector][SerializeField] private int _count = 1;
-    [HideInInspector][SerializeField] private float _duration = 1f;
+    [HideInInspector][SerializeField] private Vector2 _durationScope = new Vector2(1f, 1f);
+	private float _duration = 1f;
 
 	private int _successCount = 0;
 	private float _startTime = 0f;
@@ -21,6 +23,7 @@ public class RepeatNode : DecoratorNode
     protected override void OnStart()
 	{
 		_successCount = 0;
+        _duration = Random.Range(_durationScope.x, _durationScope.y);
         _startTime = Time.time;
 	}
 

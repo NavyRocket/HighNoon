@@ -46,7 +46,7 @@ public class BulletController : MonoBehaviour
         // 총알 발사 시 BulletUIManager 호출
         OnBulletFired?.Invoke();
     }
-
+ 
     public float Damage { get { return damage; } }
 
     public void SetMuzzle(Vector3 _muzzle)

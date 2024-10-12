@@ -23,6 +23,7 @@ public class Blackboard
         InitializeDictionary();
 
         owner = monoBehaviour;
+        target = GameInstance.Instance.GetPlayerController();
         animator = monoBehaviour.GetComponent<Animator>();
         rb = monoBehaviour.GetComponent<Rigidbody>();
         skillController = monoBehaviour.GetComponent<SkillController>();

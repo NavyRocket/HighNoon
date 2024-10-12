@@ -462,7 +462,7 @@ MonoBehaviour:
   gun: {fileID: 867297473}
   bulletPrefab: {fileID: 5144527709676146135, guid: 68c85dd3dbeae3944b07b5a9d525bd68,
     type: 3}
-  bulletPoolObject: {fileID: 611877692}
+  poolObject: {fileID: 611877692}
   muzzle: {fileID: 1495474715}
   playerInfo:
     moveSpeed: 1750
@@ -476,6 +476,12 @@ MonoBehaviour:
   bulletInfo:
     coolTime: 0.1
     timeAcc: 0
+    reboundDuration: 0.1
+    reboundMagnitude: {x: 0.015, y: 0.015, z: 0}
+  damageInfo:
+    flashDuration: 1.5
+    damageCooldown: 0.5
+    knockbackForce: {x: 5, y: 0}
 --- !u!95 &60403003
 Animator:
   serializedVersion: 5
@@ -535,8 +541,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -831665173
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 350789684, guid: 78704fbd2803a2f4f883881c7a88fa36, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -563,7 +569,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 867297474}
-  - {fileID: 611877692}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &60403006
@@ -581,11 +586,11 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.1
   m_Height: 3.85
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -640,7 +645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5069fd309b7da8c4ebe09e9203ceec7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 0
+  maxHp: 5
   maxSanity: 0
   darkenerImage: {fileID: 0}
 --- !u!114 &60403010
@@ -8949,6 +8954,9 @@ SceneRoots:
   - {fileID: 1819374197}
   - {fileID: 1967069045}
   - {fileID: 946799940}
+  - {fileID: 23416061}
+  - {fileID: 611877692}
+  - {fileID: 1988190966}
   - {fileID: 60403005}
   - {fileID: 1591444258}
   - {fileID: 1130860261}
