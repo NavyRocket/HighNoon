@@ -14,6 +14,9 @@ public class BulletController : MonoBehaviour
 
     private float timeAcc = 0f;
 
+    public delegate void BulletFiredHandler(); // 총알 발사 이벤트 델리게이트
+    public static event BulletFiredHandler OnBulletFired; // 총알 이벤트
+
     void Start()
     {
 
@@ -36,30 +39,15 @@ public class BulletController : MonoBehaviour
 
         timeAcc = 0f;
         transform.position = muzzle;
-        //  vector = GameInstance.Instance.CursorWorldPosition() - transform.position;
-        //  vector = vector.normalized;
+
         vector = new Vector3(controller.transform.eulerAngles.y == 0 ? Mathf.Cos(controller.gunRadian) : -Mathf.Cos(controller.gunRadian),
             Mathf.Sin(controller.gunRadian), 0f);
+
+        // 총알 발사 시 BulletUIManager 호출
+        OnBulletFired?.Invoke();
     }
  
     public float Damage { get { return damage; } }
-
-    static int GetIndexOfMinValue(List<float> list)
-    {
-        int minIndex = 0;
-        float minValue = list[0];
-
-        for (int i = 1; i < list.Count; i++)
-        {
-            if (list[i] < minValue)
-            {
-                minValue = list[i];
-                minIndex = i;
-            }
-        }
-
-        return minIndex;
-    }
 
     public void SetMuzzle(Vector3 _muzzle)
     {

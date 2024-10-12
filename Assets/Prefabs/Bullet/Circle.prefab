@@ -103,6 +103,13 @@ MonoBehaviour:
   speed: 15
   lifeTime: 2
   damage: 1
+  bulletImages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!108 &7868964374983261893
 Light:
   m_ObjectHideFlags: 0
