@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,8 +30,16 @@ public class PlayerStatus : MonoBehaviour
 
     public bool Damage(float damage)
     {
+        if (isDead)
+            return isDead;
+
         hp -= damage;
         isDead = hp <= 0f;
+
+        if (isDead)
+        {
+            GetComponent<Animator>().SetTrigger("Die");
+        }
 
         return isDead;
     }

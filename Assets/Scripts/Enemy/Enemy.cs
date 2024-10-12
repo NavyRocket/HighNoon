@@ -38,6 +38,8 @@ public class Enemy : MonoBehaviour
     {
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("MobC_Atk")
         ||  animator.GetCurrentAnimatorStateInfo(0).IsName("MobC_Die")
+        ||  animator.GetCurrentAnimatorStateInfo(0).IsName("MobB_Atk1")
+        ||  animator.GetCurrentAnimatorStateInfo(0).IsName("MobB_Atk2")
         ||  animator.GetCurrentAnimatorStateInfo(0).IsName("MobB_Die"))
             return;
 

@@ -134,7 +134,9 @@ MonoBehaviour:
   guid: cda0d024e7819af46885d18277809f69
   position: {x: 0, y: 1051.3334}
   child: {fileID: -4126771623596975753}
+  useManualSkillName: 1
   selectedSkillName: Attack
+  manualSkillName: Attack
 --- !u!114 &-4126771623596975753
 MonoBehaviour:
   m_ObjectHideFlags: 0

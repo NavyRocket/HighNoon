@@ -132,6 +132,7 @@ public class PlayerController : MonoBehaviour
         }
 
     //    if (!draw)
+        if (!status.isDead)
         {
             rb.AddForce(playerInfo.moveInput * playerInfo.moveSpeed * Time.deltaTime, 0f, 0f);
         }
@@ -191,7 +192,20 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void Damage(Collider other)
+    public bool Damage(float damage)
+    {
+        bool isDead = status.Damage(damage);
+
+        if (!isDead)
+        {
+            DamageEffect();
+            KnockBack();
+        }
+
+        return isDead;
+    }
+
+    bool Damage(Collider other)
     {
         bool isDead = false;
         switch (other.tag)
@@ -199,17 +213,35 @@ public class PlayerController : MonoBehaviour
             case "Enemy":
                 isDead = status.Damage(1f);
                 break;
+            case "EnemyBullet":
+                isDead = status.Damage(1f);
+                break;
             default:
                 break;
         }
 
-        KnockBack(other.transform);
-        DamageEffect();
+        if (!isDead)
+        {
+            DamageEffect();
+            KnockBack(other.transform);
+        }
+
+        return isDead;
     }
 
     void DamageEffect()
     {
         StartCoroutine(FlashCoroutine());
+    }
+
+    void KnockBack()
+    {
+        if (rb != null)
+        {
+            Vector3 knockbackDirection = transform.eulerAngles.y == 180f ? Vector3.right : Vector3.left;
+            knockbackDirection.y = damageInfo.knockbackForce.y;
+            rb.AddForce(knockbackDirection * damageInfo.knockbackForce.x, ForceMode.Impulse);
+        }
     }
 
     void KnockBack(Transform attacker)

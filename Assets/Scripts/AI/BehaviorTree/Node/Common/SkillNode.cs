@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class SkillNode : DecoratorNode
 {
-    [HideInInspector]
-    public string selectedSkillName;
+    public bool useManualSkillName = false;
+    [HideInInspector] public string selectedSkillName;
+    [HideInInspector] public string manualSkillName;
 
     private bool skillAvailable = false;
 
     protected override void OnStart()
     {
-        if (blackboard.skillController.UseSkill(selectedSkillName))
+        if (blackboard.skillController.UseSkill(useManualSkillName ? manualSkillName : selectedSkillName))
         {
             skillAvailable = true;
         }

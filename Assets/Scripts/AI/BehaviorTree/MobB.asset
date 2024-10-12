@@ -85,9 +85,37 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 569750e013ff5c84799baa70b62862a1
-  position: {x: 149.99997, y: 901.33344}
-  child: {fileID: 1387264177572868484}
-  selectedSkillName: Attack1
+  position: {x: 150.00006, y: 750.6666}
+  child: {fileID: 2145006526205557636}
+  useManualSkillName: 1
+  selectedSkillName: Attack
+  manualSkillName: Attack2
+--- !u!114 &-6299860253397036454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1f34da0bfd717f4f89fedc514ade3a6, type: 3}
+  m_Name: MobB_AtkNode
+  m_EditorClassIdentifier: 
+  blackboard:
+    dynamicFields: []
+    animator: {fileID: 0}
+    rb: {fileID: 0}
+    skillController: {fileID: 0}
+    audioSource: {fileID: 0}
+    owner: {fileID: 0}
+    target: {fileID: 0}
+  description: 
+  state: 0
+  started: 0
+  guid: 8fa6fb9b3793a1749a8f0247b86249c6
+  position: {x: 150, y: 1200}
+  delay: 0.3
 --- !u!114 &-5116763171397072348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,9 +140,11 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: a9c15b085d7012e4fa6fee7f0e72e52c
-  position: {x: 0.000061035156, y: 901.57336}
-  child: {fileID: 7033729034108154432}
-  selectedSkillName: Attack1
+  position: {x: 0.00010681152, y: 750.6666}
+  child: {fileID: 9169549947218300319}
+  useManualSkillName: 1
+  selectedSkillName: Attack
+  manualSkillName: Attack1
 --- !u!114 &-590186697607103630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,6 +219,36 @@ MonoBehaviour:
   - {fileID: 2145006526205557636}
   - {fileID: 7033729034108154432}
   - {fileID: 3654139730329614301}
+  - {fileID: -6299860253397036454}
+  - {fileID: 1235993957762302120}
+--- !u!114 &1235993957762302120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a0a1f97c89ffeb4882a94e20b465025, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  blackboard:
+    dynamicFields: []
+    animator: {fileID: 0}
+    rb: {fileID: 0}
+    skillController: {fileID: 0}
+    audioSource: {fileID: 0}
+    owner: {fileID: 0}
+    target: {fileID: 0}
+  description: 
+  state: 0
+  started: 0
+  guid: 43cf5e08801d36348aa31903960bbbc4
+  position: {x: 150, y: 1049.3334}
+  children:
+  - {fileID: -6299860253397036454}
+  - {fileID: 1387264177572868484}
 --- !u!114 &1387264177572868484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,7 +273,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 5999108c2909cb04d8e8f897cb3138d6
-  position: {x: 150, y: 1049.3336}
+  position: {x: 300, y: 1200}
   _nodeType: 3
   _floatParam: 
   _floatValue: 0
@@ -248,8 +308,8 @@ MonoBehaviour:
   guid: 78769892410ec584fb0414b0278917f1
   position: {x: -0.000061035156, y: 600.6666}
   children:
-  - {fileID: 9169549947218300319}
-  - {fileID: 2145006526205557636}
+  - {fileID: -5116763171397072348}
+  - {fileID: -6500969185241977335}
   - {fileID: -7256469495808951022}
 --- !u!114 &2003320863716798471
 MonoBehaviour:
@@ -330,8 +390,8 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: f06d5b5a9703e9f4c8559f71e890b7e7
-  position: {x: 150, y: 750.66656}
-  child: {fileID: -6500969185241977335}
+  position: {x: 149.99997, y: 901.33344}
+  child: {fileID: 1235993957762302120}
   range: 5
   inRange: 1
   checkOnce: 0
@@ -392,7 +452,8 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: e648b1c9e06c99846a7e2ae2d7c88602
-  position: {x: -150.0003, y: 1200.0002}
+  position: {x: -150, y: 1200}
+  delay: 0.3
   range: 3
 --- !u!114 &7033729034108154432
 MonoBehaviour:
@@ -420,8 +481,8 @@ MonoBehaviour:
   guid: 1c810907b265f324583dab6ad2083a62
   position: {x: -0.00015258789, y: 1049.3334}
   children:
-  - {fileID: 7247001290590842169}
   - {fileID: 3654139730329614301}
+  - {fileID: 7247001290590842169}
 --- !u!114 &7247001290590842169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -508,8 +569,8 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: ffd6273c5cb31b1449980af9e54f1e8f
-  position: {x: 0, y: 750.6667}
-  child: {fileID: -5116763171397072348}
+  position: {x: 0.000028540293, y: 901.3333}
+  child: {fileID: 7033729034108154432}
   range: 5
   inRange: 1
   checkOnce: 0

@@ -21,6 +21,11 @@ public class PartycleSystemDisactivate : MonoBehaviour
 
     private void OnEnable()
     {
+        if (ps == null)
+        {
+            ps = GetComponent<ParticleSystem>();
+            ps.GetComponent<Renderer>().sortingLayerName = "Effect";
+        }
         ps.Play();
     }
 }
