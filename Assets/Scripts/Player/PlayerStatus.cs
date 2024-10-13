@@ -6,22 +6,33 @@ using UnityEngine.UI;
 
 public class PlayerStatus : MonoBehaviour
 {
-    [SerializeField] float maxHp;
-    [SerializeField] float maxSanity;
-    [SerializeField] Image darkenerImage;
+//  [SerializeField] private float _maxSanity;
+//  [SerializeField] private Image _darkenerImage;
 
     [SerializeField, ReadOnly]
-    float hp;
-    float sanity;
+    private float _hp;
+    [SerializeField]
+    private float _maxHp;
+//  float sanity;
+    public float hp { get { return _hp; } set { _hp = value; } }
+    public float maxHp { get { return _maxHp; } set { _maxHp = value ; } }
+    public float damage { get; set; }
+    public float criticalDamage { get; set; }
     public float criticalChance { get; set; }
+    public float reloadSpeed { get; set; }
+    public bool rollExp { get; set; }
     public bool isDead { get; private set; }
 
     // Start is called before the first frame update
     void Start()
     {
-        hp = maxHp;
-        sanity = maxSanity;
+        _hp = _maxHp;
+//      sanity = _maxSanity;
+        damage = 1f;
+        criticalDamage = 2f;
         criticalChance = 0.1f;
+        reloadSpeed = 0.2f;
+        rollExp = false;
         isDead = false;
     }
 
@@ -36,8 +47,8 @@ public class PlayerStatus : MonoBehaviour
         if (isDead)
             return isDead;
 
-        hp -= damage;
-        isDead = hp <= 0f;
+        _hp -= damage;
+        isDead = _hp <= 0f;
 
         if (isDead)
         {

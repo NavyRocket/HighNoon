@@ -70,4 +70,9 @@ public class ItemController : MonoBehaviour
     {
 
     }
+
+    public Sprite GetIcon(int index)
+    {
+        return _iconSprites[index];
+    }
 }

@@ -20,7 +20,7 @@ public class Inventory : MonoBehaviour
 
     public void ResetTitle()
     {
-        _title.text = "Inventory (" + _itemNum.ToString() + "/" + _slotList.Count.ToString() + ")";
+        _title.text = "°¡¹æ (" + _itemNum.ToString() + "/" + _slotList.Count.ToString() + ")";
     }
 
     public void AddSlot(bool initialSlot)
@@ -97,7 +97,7 @@ public class Inventory : MonoBehaviour
         ResetTitle();
     }
 
-    public void ToggleInventory()
+    public void Toggle()
     {
         if (!gameObject.activeSelf)
         {

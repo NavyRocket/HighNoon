@@ -31,5 +31,12 @@ public class WindowController : MonoBehaviour
     public void HideFunc()
     {
         gameObject.SetActive(false);
+        //StartCoroutine(HideAfterDelay(5f));
+    }
+
+    IEnumerator HideAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        gameObject.SetActive(false);
     }
 }

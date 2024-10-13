@@ -43,6 +43,9 @@ public class GameInstance : SingletonMonoBehaviour<GameInstance>
 
     [ReadOnly]
     public PHASE phase = PHASE.PHASE1;
+    [SerializeField, ReadOnly]
+    private int _score = 0;
+    public int score { get { return _score; } private set { _score = value; } }
 
     [SerializeField] Camera mainCamera;
     [SerializeField] public PlayerController playerController;
@@ -51,7 +54,9 @@ public class GameInstance : SingletonMonoBehaviour<GameInstance>
 
     [SerializeField] GameObject _canvas;
     [SerializeField] Inventory _inventory;
-    private GameObject myInventory;
+    [SerializeField] RebirthMenu _rebirthMenu;
+    private Inventory myInventory;
+    private RebirthMenu myRebirthMenu;
 
     [SerializeField] Transform trainObjects;
     [SerializeField] Transform railObjects;
@@ -97,6 +102,7 @@ public class GameInstance : SingletonMonoBehaviour<GameInstance>
     void Start()
     {
         phase = PHASE.PHASE1;
+        score = 0;
 
         cameraController = mainCamera.GetComponent<CameraController>();
 
@@ -162,8 +168,10 @@ public class GameInstance : SingletonMonoBehaviour<GameInstance>
             return ps;
         }, 1);
 
-        myInventory = Instantiate(_inventory.gameObject, _canvas.transform);
+        myInventory = Instantiate(_inventory.gameObject, _canvas.transform).GetComponent<Inventory>();
         myInventory.gameObject.SetActive(false);
+        myRebirthMenu = Instantiate(_rebirthMenu.gameObject, _canvas.transform).GetComponent<RebirthMenu>();
+        myRebirthMenu.gameObject.SetActive(false);
     }
 
     void Update()
@@ -171,7 +179,9 @@ public class GameInstance : SingletonMonoBehaviour<GameInstance>
         RepeatRail();
 
         if (Input.GetKeyDown(KeyCode.I))
-            myInventory.GetComponent<Inventory>().ToggleInventory();
+            myInventory.Toggle();
+        if (Input.GetKeyDown(KeyCode.O))
+            myRebirthMenu.Toggle();
 
         if (Input.GetKeyDown(KeyCode.Space))
             playerController.Damage(100f);
@@ -282,5 +292,11 @@ public class GameInstance : SingletonMonoBehaviour<GameInstance>
             }
             break;
         }
+    }
+
+    public int IncreaseScore(int value)
+    {
+        score += value;
+        return score;
     }
 }

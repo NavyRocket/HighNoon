@@ -29,7 +29,6 @@ public class PlayerController : MonoBehaviour
     [Serializable]
     public struct BulletInfo
     {
-        public float coolTime;
         [HideInInspector] public float timeAcc;
 
         public float reboundDuration;
@@ -54,7 +53,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] BulletInfo bulletInfo;
     [SerializeField] DamageInfo damageInfo;
 
-
     ObjectPool<BulletController> bulletPool;
     public bool canTakeDamage { get; set; }
 
@@ -65,10 +63,10 @@ public class PlayerController : MonoBehaviour
     public float gunRadian { get; set; }
     Vector3 gunOffset = new Vector3(0f, 0.75f, 0f);
 
-    Animator animator;
-    Rigidbody rb;
-    SpriteRenderer sr;
-    PlayerStatus status;
+    private Animator animator;
+    private Rigidbody rb;
+    private SpriteRenderer sr;
+    public PlayerStatus status;
 
     void Start()
     {
@@ -106,11 +104,11 @@ public class PlayerController : MonoBehaviour
             gun.transform.localRotation = Quaternion.Euler(0f, 0f, gunRadian * Mathf.Rad2Deg);
         }
 
-        if (bulletInfo.timeAcc < bulletInfo.coolTime)
+        if (bulletInfo.timeAcc < status.reloadSpeed)
         {
             bulletInfo.timeAcc += Time.deltaTime;
         }
-        if (aim && Input.GetMouseButtonDown(0) && bulletInfo.timeAcc >= bulletInfo.coolTime)
+        if (aim && Input.GetMouseButtonDown(0) && bulletInfo.timeAcc >= status.reloadSpeed)
         {
             Invoke("FireBullet", 0f);
             GameInstance.Instance.cameraController.Shake(bulletInfo.reboundDuration, bulletInfo.reboundMagnitude);

@@ -78,8 +78,11 @@ public class PlayerInputHandler : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.LeftControl))
                 {
-                    controller.roll = true;
-                    animator.SetTrigger("Roll");
+                    if (status.rollExp)
+                    {
+                        controller.roll = true;
+                        animator.SetTrigger("Roll");
+                    }
                 }
             }
         }

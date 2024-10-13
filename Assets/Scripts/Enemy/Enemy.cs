@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public enum ENEMY
 {
@@ -110,6 +111,21 @@ public class Enemy : MonoBehaviour
         if (!isDead)
             return;
 
+        switch (enemy)
+        {
+            case ENEMY.A:
+                GameInstance.Instance.IncreaseScore(5);
+                break;
+            case ENEMY.B:
+                GameInstance.Instance.IncreaseScore(15);
+                break;
+            case ENEMY.C:
+                GameInstance.Instance.IncreaseScore(10);
+                break;
+        }
+
+        DropItem();
+
         animator.enabled = false;
         gameObject.SetActive(false);
         Destroy(gameObject);
@@ -125,5 +141,10 @@ public class Enemy : MonoBehaviour
     {
         isMelee = false;
         meleeCollider.gameObject.SetActive(false);
+    }
+
+    public void DropItem()
+    {
+
     }
 }

@@ -15,8 +15,6 @@ public class BulletController : MonoBehaviour
 
     [SerializeField] private float speed = 1f;
     [SerializeField] private float lifeTime = 1f;
-    [SerializeField] private float damage = 1f;
-    [SerializeField] private float criticalDamage = 2f;
 
     [SerializeField] private Vector3 vfxOffset = Vector3.zero;
     [SerializeField] private float vfxOffsetByVelocityNormalized = 0f;
@@ -88,7 +86,7 @@ public class BulletController : MonoBehaviour
             Enemy enemy = other.GetComponent<Enemy>();
             if (enemy != null)
             {
-                enemy.Damage(isCritical ? criticalDamage : damage);
+                enemy.Damage(isCritical ? status.damage * status.criticalDamage : status.damage);
                 if (enemy.isDead)
                     other.enabled = false;
             }
@@ -103,8 +101,6 @@ public class BulletController : MonoBehaviour
             RetrieveBullet();
         }
     }
-
-    public float Damage { get { return damage; } }
 
     public void SetMuzzle(Vector3 _muzzle)
     {
