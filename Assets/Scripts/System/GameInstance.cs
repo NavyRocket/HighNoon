@@ -9,6 +9,30 @@ public enum PHASE
     PHASE2,
     BOSS
 }
+public enum ItemID
+{
+    None = -1,
+    Ball,
+    BowlingBall,
+    Bomb,
+    Coin,
+    Hat,
+    Magnet,
+    Max
+}
+
+public struct ItemData
+{
+    public ItemID itemID;
+    public int icon;
+    public int value;
+}
+
+public struct ItemInfo
+{
+    public ItemData data;
+    public int count;
+}
 
 public class GameInstance : SingletonMonoBehaviour<GameInstance>
 {
@@ -22,6 +46,10 @@ public class GameInstance : SingletonMonoBehaviour<GameInstance>
     [SerializeField] public PlayerController playerController;
     [SerializeField] float near = 5f;
     public CameraController cameraController;
+
+    [SerializeField] GameObject _canvas;
+    [SerializeField] Inventory _inventory;
+    private GameObject myInventory;
 
     [SerializeField] Transform trainObjects;
     [SerializeField] Transform railObjects;
@@ -92,19 +120,20 @@ public class GameInstance : SingletonMonoBehaviour<GameInstance>
             var ps = obj.GetComponent<ParticleSystem>();
             return ps;
         }, 1);
+
+        myInventory = Instantiate(_inventory.gameObject, _canvas.transform);
+        myInventory.gameObject.SetActive(false);
     }
 
     void Update()
     {
         RepeatRail();
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            bool isDie = playerController.Damage(100f);
-        }
+        if (Input.GetKeyDown(KeyCode.I))
+            myInventory.GetComponent<Inventory>().ToggleInventory();
     }
 
-//  public Vector3 CursorWorldPosition(float? z = null)
+    //  public Vector3 CursorWorldPosition(float? z = null)
     public Vector3 CursorWorldPosition()
     {
         Vector3 worldPosition = mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, near));
