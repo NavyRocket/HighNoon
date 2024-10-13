@@ -26,6 +26,10 @@ public class PartycleSystemDisactivate : MonoBehaviour
             ps = GetComponent<ParticleSystem>();
             ps.GetComponent<Renderer>().sortingLayerName = "Effect";
         }
+
         ps.Play();
+
+        foreach (Transform child in transform)
+            child.gameObject.SetActive(true);
     }
 }

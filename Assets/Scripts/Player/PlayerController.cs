@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -149,6 +150,23 @@ public class PlayerController : MonoBehaviour
             }
             else if (other.CompareTag("EnemyBullet"))
             {
+                var vfx = GameInstance.Instance.hitPlayerPool.Get();
+                if (null == vfx.GetComponent<PartycleSystemDisactivate>())
+                    vfx.AddComponent<PartycleSystemDisactivate>();
+                vfx.transform.position = other.transform.position;
+                vfx.gameObject.SetActive(true);
+
+                other.gameObject.SetActive(false);
+                Damage(other);
+            }
+            else if (other.CompareTag("EnemyMelee"))
+            {
+                var vfx = GameInstance.Instance.hitPlayerPool.Get();
+                if (null == vfx.GetComponent<PartycleSystemDisactivate>())
+                    vfx.AddComponent<PartycleSystemDisactivate>();
+                vfx.transform.position = transform.position + other.GetComponent<MeleeController>().vfxOffset;
+                vfx.gameObject.SetActive(true);
+
                 other.gameObject.SetActive(false);
                 Damage(other);
             }
@@ -165,6 +183,11 @@ public class PlayerController : MonoBehaviour
             }
             else if (other.CompareTag("EnemyBullet"))
             {
+                var vfx = GameInstance.Instance.hitPlayerPool.Get();
+                if (null == vfx.GetComponent<PartycleSystemDisactivate>())
+                    vfx.AddComponent<PartycleSystemDisactivate>();
+                vfx.transform.position = other.transform.position;
+                vfx.gameObject.SetActive(true);
 
                 other.gameObject.SetActive(false);
                 Damage(other);
@@ -194,6 +217,10 @@ public class PlayerController : MonoBehaviour
 
     public bool Damage(float damage)
     {
+        if (!canTakeDamage)
+            return false;
+
+        bool org = status.isDead;
         bool isDead = status.Damage(damage);
 
         if (!isDead)
@@ -201,12 +228,18 @@ public class PlayerController : MonoBehaviour
             DamageEffect();
             KnockBack();
         }
+        else if (!org)
+            KnockBack();
 
         return isDead;
     }
 
     bool Damage(Collider other)
     {
+        if (!canTakeDamage)
+            return false;
+
+        bool org = status.isDead;
         bool isDead = false;
         switch (other.tag)
         {
@@ -214,6 +247,9 @@ public class PlayerController : MonoBehaviour
                 isDead = status.Damage(1f);
                 break;
             case "EnemyBullet":
+                isDead = status.Damage(1f);
+                break;
+            case "EnemyMelee":
                 isDead = status.Damage(1f);
                 break;
             default:
@@ -225,6 +261,8 @@ public class PlayerController : MonoBehaviour
             DamageEffect();
             KnockBack(other.transform);
         }
+        else if (!org)
+            KnockBack(other.transform);
 
         return isDead;
     }
@@ -272,5 +310,15 @@ public class PlayerController : MonoBehaviour
         sr.color = Color.white;
         yield return new WaitForSeconds(damageInfo.damageCooldown);
         canTakeDamage = true;
+    }
+
+    public void CanTakeDamage()
+    {
+        canTakeDamage = true;
+    }
+
+    public void CantTakeDamage()
+    {
+        canTakeDamage = false;
     }
 }

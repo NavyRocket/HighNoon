@@ -1,5 +1,34 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7393938704504392625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 364e2869b07fb474eb3ce9aed8de097f, type: 3}
+  m_Name: RangeNode
+  m_EditorClassIdentifier: 
+  blackboard:
+    dynamicFields: []
+    animator: {fileID: 0}
+    rb: {fileID: 0}
+    skillController: {fileID: 0}
+    audioSource: {fileID: 0}
+    owner: {fileID: 0}
+    target: {fileID: 0}
+  description: Out 4
+  state: 0
+  started: 0
+  guid: 0fcf411165c78f947ba92f2451ffe785
+  position: {x: 300, y: 901.3333}
+  child: {fileID: 6876917423954107979}
+  range: 4
+  inRange: 0
+  checkOnce: 0
 --- !u!114 &-7257800372935330155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27,40 +56,7 @@ MonoBehaviour:
   position: {x: 0, y: 300.00003}
   children:
   - {fileID: 2003320863716798471}
-  - {fileID: 8684341380607578830}
---- !u!114 &-7256469495808951022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1d620cb9b3154541a11ca5e8f2069dd, type: 3}
-  m_Name: AnimationNode
-  m_EditorClassIdentifier: 
-  blackboard:
-    dynamicFields: []
-    animator: {fileID: 0}
-    rb: {fileID: 0}
-    skillController: {fileID: 0}
-    audioSource: {fileID: 0}
-    owner: {fileID: 0}
-    target: {fileID: 0}
-  description: Idle
-  state: 0
-  started: 0
-  guid: 6cc0c1e925c68bb40b0446ac6f2c82c7
-  position: {x: 299.99994, y: 750.66675}
-  _nodeType: 3
-  _floatParam: 
-  _floatValue: 0
-  _intParam: 
-  _intValue: 0
-  _boolParam: 
-  _boolValue: 0
-  _trigger: Idle
+  - {fileID: -1751665308797018327}
 --- !u!114 &-6500969185241977335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,6 +141,94 @@ MonoBehaviour:
   useManualSkillName: 1
   selectedSkillName: Attack
   manualSkillName: Attack1
+--- !u!114 &-4632486970864098914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b03507e0c9255ff45b4c7c7b39d1fa4d, type: 3}
+  m_Name: DebugLogNode
+  m_EditorClassIdentifier: 
+  blackboard:
+    dynamicFields: []
+    animator: {fileID: 0}
+    rb: {fileID: 0}
+    skillController: {fileID: 0}
+    audioSource: {fileID: 0}
+    owner: {fileID: 0}
+    target: {fileID: 0}
+  description: 
+  state: 0
+  started: 0
+  guid: c82be81c0fe09d94fa9a5e04853e20e3
+  position: {x: 599.99994, y: 1350}
+  message: asdfasdf
+--- !u!114 &-4113111704249686178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1d620cb9b3154541a11ca5e8f2069dd, type: 3}
+  m_Name: AnimationNode
+  m_EditorClassIdentifier: 
+  blackboard:
+    dynamicFields: []
+    animator: {fileID: 0}
+    rb: {fileID: 0}
+    skillController: {fileID: 0}
+    audioSource: {fileID: 0}
+    owner: {fileID: 0}
+    target: {fileID: 0}
+  description: Idle
+  state: 0
+  started: 0
+  guid: 9921fa04c530f0748ba61fea440dbc0c
+  position: {x: 450.0001, y: 750.6667}
+  _nodeType: 3
+  _floatParam: 
+  _floatValue: 0
+  _intParam: 
+  _intValue: 0
+  _boolParam: 
+  _boolValue: 0
+  _trigger: Idle
+--- !u!114 &-1751665308797018327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b74051e6802ad8479c4f856ef399fdc, type: 3}
+  m_Name: RepeatNode
+  m_EditorClassIdentifier: 
+  blackboard:
+    dynamicFields: []
+    animator: {fileID: 0}
+    rb: {fileID: 0}
+    skillController: {fileID: 0}
+    audioSource: {fileID: 0}
+    owner: {fileID: 0}
+    target: {fileID: 0}
+  description: 
+  state: 0
+  started: 0
+  guid: fdd9b5cad9f23324f86aa8d08d740926
+  position: {x: 150, y: 450.00003}
+  child: {fileID: 2325806622317090231}
+  _repeatType: 0
+  _count: 1
+  _durationScope: {x: 1, y: 1}
 --- !u!114 &-590186697607103630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,11 +291,9 @@ MonoBehaviour:
   - {fileID: -590186697607103630}
   - {fileID: -7257800372935330155}
   - {fileID: 2003320863716798471}
-  - {fileID: 8684341380607578830}
   - {fileID: 2325806622317090231}
   - {fileID: 1833041784045017691}
   - {fileID: 9169549947218300319}
-  - {fileID: -7256469495808951022}
   - {fileID: -5116763171397072348}
   - {fileID: -6500969185241977335}
   - {fileID: 7247001290590842169}
@@ -221,6 +303,43 @@ MonoBehaviour:
   - {fileID: 3654139730329614301}
   - {fileID: -6299860253397036454}
   - {fileID: 1235993957762302120}
+  - {fileID: 1149441854316942526}
+  - {fileID: -7393938704504392625}
+  - {fileID: 6876917423954107979}
+  - {fileID: 4767932218566425603}
+  - {fileID: 6506736401602271871}
+  - {fileID: -4632486970864098914}
+  - {fileID: -1751665308797018327}
+  - {fileID: -4113111704249686178}
+--- !u!114 &1149441854316942526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 364e2869b07fb474eb3ce9aed8de097f, type: 3}
+  m_Name: RangeNode
+  m_EditorClassIdentifier: 
+  blackboard:
+    dynamicFields: []
+    animator: {fileID: 0}
+    rb: {fileID: 0}
+    skillController: {fileID: 0}
+    audioSource: {fileID: 0}
+    owner: {fileID: 0}
+    target: {fileID: 0}
+  description: In 8
+  state: 0
+  started: 0
+  guid: f14bd1bb5571d654481c804dd65a2c32
+  position: {x: 299.9999, y: 750.6667}
+  child: {fileID: -7393938704504392625}
+  range: 8
+  inRange: 1
+  checkOnce: 0
 --- !u!114 &1235993957762302120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,7 +429,8 @@ MonoBehaviour:
   children:
   - {fileID: -5116763171397072348}
   - {fileID: -6500969185241977335}
-  - {fileID: -7256469495808951022}
+  - {fileID: 1149441854316942526}
+  - {fileID: -4113111704249686178}
 --- !u!114 &2003320863716798471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,7 +539,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 21ee1c81ad8c6b948a4f1c71cc2fb0e9
-  position: {x: 150, y: 600.66675}
+  position: {x: 150, y: 600.6666}
   _nodeType: 3
   _floatParam: 
   _floatValue: 0
@@ -455,6 +575,95 @@ MonoBehaviour:
   position: {x: -150, y: 1200}
   delay: 0.3
   range: 3
+  healAmount: 3
+--- !u!114 &4767932218566425603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6d3b8bc180aea146bcd7700922f5b5c, type: 3}
+  m_Name: ChaseNode
+  m_EditorClassIdentifier: 
+  blackboard:
+    dynamicFields: []
+    animator: {fileID: 0}
+    rb: {fileID: 0}
+    skillController: {fileID: 0}
+    audioSource: {fileID: 0}
+    owner: {fileID: 0}
+    target: {fileID: 0}
+  description: 
+  state: 0
+  started: 0
+  guid: 2894f3eb04fdb6a49949e1cc40b3a5d6
+  position: {x: 450, y: 1350}
+  speed: 800
+--- !u!114 &6506736401602271871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1d620cb9b3154541a11ca5e8f2069dd, type: 3}
+  m_Name: AnimationNode
+  m_EditorClassIdentifier: 
+  blackboard:
+    dynamicFields: []
+    animator: {fileID: 0}
+    rb: {fileID: 0}
+    skillController: {fileID: 0}
+    audioSource: {fileID: 0}
+    owner: {fileID: 0}
+    target: {fileID: 0}
+  description: Idle
+  state: 0
+  started: 0
+  guid: c5702dd162a27e649b36529297c2700a
+  position: {x: 299.99994, y: 1350.0245}
+  _nodeType: 3
+  _floatParam: 
+  _floatValue: 0
+  _intParam: 
+  _intValue: 0
+  _boolParam: 
+  _boolValue: 0
+  _trigger: Idle
+--- !u!114 &6876917423954107979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a21d2c19f5a9fa4eb85df69d2a8b3ab, type: 3}
+  m_Name: ParallelNode
+  m_EditorClassIdentifier: 
+  blackboard:
+    dynamicFields: []
+    animator: {fileID: 0}
+    rb: {fileID: 0}
+    skillController: {fileID: 0}
+    audioSource: {fileID: 0}
+    owner: {fileID: 0}
+    target: {fileID: 0}
+  description: 
+  state: 0
+  started: 0
+  guid: 3674c8dbf5d1a3c47880d94032c3851f
+  position: {x: 299.99997, y: 1049.3334}
+  children:
+  - {fileID: 6506736401602271871}
+  - {fileID: 4767932218566425603}
+  successThreshold: 1
 --- !u!114 &7033729034108154432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -516,35 +725,6 @@ MonoBehaviour:
   _boolParam: 
   _boolValue: 0
   _trigger: Atk1
---- !u!114 &8684341380607578830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b74051e6802ad8479c4f856ef399fdc, type: 3}
-  m_Name: RepeatNode
-  m_EditorClassIdentifier: 
-  blackboard:
-    dynamicFields: []
-    animator: {fileID: 0}
-    rb: {fileID: 0}
-    skillController: {fileID: 0}
-    audioSource: {fileID: 0}
-    owner: {fileID: 0}
-    target: {fileID: 0}
-  description: 
-  state: 0
-  started: 0
-  guid: 879245ff454b46c4b9c1e655ecf29065
-  position: {x: 150, y: 450.00003}
-  child: {fileID: 2325806622317090231}
-  _repeatType: 0
-  _count: 1
-  _durationScope: {x: 1, y: 1}
 --- !u!114 &9169549947218300319
 MonoBehaviour:
   m_ObjectHideFlags: 0

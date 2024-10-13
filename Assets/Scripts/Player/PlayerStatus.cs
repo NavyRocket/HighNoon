@@ -10,8 +10,10 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] float maxSanity;
     [SerializeField] Image darkenerImage;
 
+    [SerializeField, ReadOnly]
     float hp;
     float sanity;
+    public float criticalChance { get; set; }
     public bool isDead { get; private set; }
 
     // Start is called before the first frame update
@@ -19,6 +21,7 @@ public class PlayerStatus : MonoBehaviour
     {
         hp = maxHp;
         sanity = maxSanity;
+        criticalChance = 0.1f;
         isDead = false;
     }
 
@@ -39,6 +42,7 @@ public class PlayerStatus : MonoBehaviour
         if (isDead)
         {
             GetComponent<Animator>().SetTrigger("Die");
+            GetComponent<PlayerController>().gun.SetActive(false);
         }
 
         return isDead;

@@ -21,8 +21,14 @@ public class SlotController : MonoBehaviour, IScrollHandler //https://higatsuryu
 
     [SerializeField] Animator _animator;
 
-    public void SlotMouseDown() { _animator.SetTrigger("slotMouseDown"); }
-    public void SlotMouseUp() { _animator.SetTrigger("slotMouseUp"); }
+    public void SlotMouseDown()
+    {
+        _animator.SetTrigger("slotMouseDown");
+    }
+    public void SlotMouseUp()
+    {
+        _animator.SetTrigger("slotMouseUp");
+    }
     //public void SlotUnselected() { _animator.SetTrigger("slotUnselected"); }
 
     Inventory _inventory;

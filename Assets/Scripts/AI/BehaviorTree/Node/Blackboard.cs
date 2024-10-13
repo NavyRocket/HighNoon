@@ -64,6 +64,20 @@ public class Blackboard
         }
         return default;
     }
+
+    public bool Set<T>(string variableName, T value)
+    {
+        if (_blackboardDictionary.ContainsKey(variableName))
+        {
+            _blackboardDictionary[variableName] = value;
+            return true;
+        }
+        else
+        {
+            _blackboardDictionary.Add(variableName, value);
+            return false;
+        }
+    }
 }
 
 [System.Serializable]

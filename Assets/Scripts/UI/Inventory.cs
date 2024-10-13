@@ -84,7 +84,7 @@ public class Inventory : MonoBehaviour
                 break;
             }
         }
-        slot.IsSlotSelected = true;
+        slot.IsSlotSelected = !slot.IsSlotSelected;
     }
 
     // Start is called before the first frame update

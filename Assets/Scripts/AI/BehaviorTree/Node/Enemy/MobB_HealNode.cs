@@ -8,6 +8,7 @@ public class MobB_HealNode : ActionNode
     static float fixedY = 0.5f;
     public float delay = 0f;
     public float range = 1f;
+    public float healAmount = 1f;
 
     protected override void OnStart()
     {
@@ -43,6 +44,8 @@ public class MobB_HealNode : ActionNode
                 vfx.transform.rotation = Quaternion.Euler(270f, 0, 0);
                 vfx.transform.localScale = Vector3.one * 0.75f;
                 vfx.gameObject.SetActive(true);
+
+                enemy.Heal(healAmount);
             }
         }
     }
