@@ -28,6 +28,7 @@ public class RebirthMenu : MonoBehaviour
         else
         {
             GetComponent<Animator>().Play("Hide");
+            GameInstance.Instance.playerController.Rebirth();
         }
     }
 

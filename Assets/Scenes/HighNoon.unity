@@ -305,7 +305,7 @@ SpriteRenderer:
   m_SortingLayerID: -831665173
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 350789684, guid: 78704fbd2803a2f4f883881c7a88fa36, type: 3}
+  m_Sprite: {fileID: 1760690579, guid: 78704fbd2803a2f4f883881c7a88fa36, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -533,6 +533,7 @@ GameObject:
   m_Component:
   - component: {fileID: 268149466}
   - component: {fileID: 268149465}
+  - component: {fileID: 268149467}
   m_Layer: 0
   m_Name: Volume
   m_TagString: Untagged
@@ -572,6 +573,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &268149467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268149464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58b6913f5fcb8af41a082ac533e3a3e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dontDestroyOnLoad: 0
+  closeEyeDuration: 5
+  openEyeDuration: 2.5
 --- !u!1 &603104076
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,10 +694,13 @@ MonoBehaviour:
   near: 5
   cameraController: {fileID: 1967069047}
   _canvas: {fileID: 844321897}
+  _speech: {fileID: 1924730165574492572, guid: 86d33ecf5cbfd3f47b0ec4a57b0b8c31, type: 3}
   _inventory: {fileID: 7890522359572416569, guid: d8257aac590e035499a323a678a32a98,
     type: 3}
   _rebirthMenu: {fileID: 621622258529536305, guid: 15bb3b892cdffd64ea88f6ea4891e6ac,
     type: 3}
+  myInventory: {fileID: 0}
+  myRebirthMenu: {fileID: 0}
   trainObjects: {fileID: 1544883984}
   railObjects: {fileID: 2082519541}
   trainPassengerPrefab: {fileID: 7959953808784554983, guid: 414c7d806228e4b4db8423f7d4a73cbf,
@@ -883,7 +902,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0

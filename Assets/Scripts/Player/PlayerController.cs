@@ -213,6 +213,14 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void Rebirth()
+    {
+        GameInstance.Instance.phase = PHASE.PHASE2;
+        transform.position = new Vector3(0f, transform.position.y, 0f);
+        VolumeManager.Instance.OpenEye();
+        status.Rebirth();
+    }
+
     public bool Damage(float damage)
     {
         if (!canTakeDamage)

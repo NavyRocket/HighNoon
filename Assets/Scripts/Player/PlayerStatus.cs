@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.UI;
+using static Unity.VisualScripting.Dependencies.Sqlite.SQLite3;
 
 public class PlayerStatus : MonoBehaviour
 {
@@ -54,8 +55,27 @@ public class PlayerStatus : MonoBehaviour
         {
             GetComponent<Animator>().SetTrigger("Die");
             GetComponent<PlayerController>().gun.SetActive(false);
+
+            VolumeManager.Instance.CloseEye();
+            Invoke("RebirthMenu", 0.75f);
         }
 
         return isDead;
+    }
+
+    public void Rebirth()
+    {
+        Invoke("RebirthAnimation", 1f);
+        isDead = false;
+        hp = maxHp;
+    }
+
+    void RebirthMenu()
+    {
+        GameInstance.Instance.myRebirthMenu.Toggle();
+    }
+    void RebirthAnimation()
+    {
+        GetComponent<Animator>().SetTrigger("Rebirth");
     }
 }

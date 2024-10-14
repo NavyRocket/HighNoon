@@ -53,10 +53,11 @@ public class GameInstance : SingletonMonoBehaviour<GameInstance>
     public CameraController cameraController;
 
     [SerializeField] GameObject _canvas;
+    [SerializeField] GameObject _speech;
     [SerializeField] Inventory _inventory;
     [SerializeField] RebirthMenu _rebirthMenu;
-    private Inventory myInventory;
-    private RebirthMenu myRebirthMenu;
+    public Inventory myInventory;
+    public RebirthMenu myRebirthMenu;
 
     [SerializeField] Transform trainObjects;
     [SerializeField] Transform railObjects;
@@ -77,7 +78,7 @@ public class GameInstance : SingletonMonoBehaviour<GameInstance>
     [SerializeField] GameObject boss_Prefab;
     [SerializeField] Vector2 mobNumScope = Vector2.zero;
 
-    private GameObject npc;
+    private NPCController npc;
     public GameObject hitPlayerPrefab;
     public GameObject hitMobPrefab;
     public GameObject hitMobCriticalPrefab;
@@ -125,8 +126,9 @@ public class GameInstance : SingletonMonoBehaviour<GameInstance>
             railDeque.Last.Value.transform.localPosition = new Vector3(railInterval, -0.5f, 0.8f);
         }
 
-        npc = Instantiate(npc_Prefab, mobPool);
+        npc = Instantiate(npc_Prefab, mobPool).GetComponent<NPCController>();
         npc.transform.localPosition = new Vector3(playerController.transform.position.x + 5f, npcY, 0f);
+        npc.WelcomeMessage(1f);
 
         hitPlayerPool = new ObjectPool<ParticleSystem>(() =>
         {
