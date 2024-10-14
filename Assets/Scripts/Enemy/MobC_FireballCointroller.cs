@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MobC_FireballController : MonoBehaviour
@@ -51,4 +52,30 @@ public class MobC_FireballController : MonoBehaviour
         transform.position = position;
         rb.AddForce(direction * force, ForceMode.Impulse);
     }
+
+    /*
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player") && GameInstance.Instance.playerController.canTakeDamage)
+        {
+            var vfx = GameInstance.Instance.hitPlayerPool.Get();
+            if (null == vfx.GetComponent<PartycleSystemDisactivate>())
+                vfx.AddComponent<PartycleSystemDisactivate>();
+            vfx.transform.position = transform.position;
+            vfx.gameObject.SetActive(true);
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player") && GameInstance.Instance.playerController.canTakeDamage)
+        {
+            var vfx = GameInstance.Instance.hitPlayerPool.Get();
+            if (null == vfx.GetComponent<PartycleSystemDisactivate>())
+                vfx.AddComponent<PartycleSystemDisactivate>();
+            vfx.transform.position = transform.position;
+            vfx.gameObject.SetActive(true);
+        }
+    }
+    */
 }

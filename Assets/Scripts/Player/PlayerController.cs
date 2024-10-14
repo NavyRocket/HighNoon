@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -28,7 +29,6 @@ public class PlayerController : MonoBehaviour
     [Serializable]
     public struct BulletInfo
     {
-        public float coolTime;
         [HideInInspector] public float timeAcc;
 
         public float reboundDuration;
@@ -53,7 +53,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] BulletInfo bulletInfo;
     [SerializeField] DamageInfo damageInfo;
 
-
     ObjectPool<BulletController> bulletPool;
     public bool canTakeDamage { get; set; }
 
@@ -64,10 +63,10 @@ public class PlayerController : MonoBehaviour
     public float gunRadian { get; set; }
     Vector3 gunOffset = new Vector3(0f, 0.75f, 0f);
 
-    Animator animator;
-    Rigidbody rb;
-    SpriteRenderer sr;
-    PlayerStatus status;
+    private Animator animator;
+    private Rigidbody rb;
+    private SpriteRenderer sr;
+    public PlayerStatus status;
 
     void Start()
     {
@@ -105,11 +104,11 @@ public class PlayerController : MonoBehaviour
             gun.transform.localRotation = Quaternion.Euler(0f, 0f, gunRadian * Mathf.Rad2Deg);
         }
 
-        if (bulletInfo.timeAcc < bulletInfo.coolTime)
+        if (bulletInfo.timeAcc < status.reloadSpeed)
         {
             bulletInfo.timeAcc += Time.deltaTime;
         }
-        if (aim && Input.GetMouseButtonDown(0) && bulletInfo.timeAcc >= bulletInfo.coolTime)
+        if (aim && Input.GetMouseButtonDown(0) && bulletInfo.timeAcc >= status.reloadSpeed)
         {
             Invoke("FireBullet", 0f);
             GameInstance.Instance.cameraController.Shake(bulletInfo.reboundDuration, bulletInfo.reboundMagnitude);
@@ -132,6 +131,7 @@ public class PlayerController : MonoBehaviour
         }
 
     //    if (!draw)
+        if (!status.isDead)
         {
             rb.AddForce(playerInfo.moveInput * playerInfo.moveSpeed * Time.deltaTime, 0f, 0f);
         }
@@ -148,6 +148,23 @@ public class PlayerController : MonoBehaviour
             }
             else if (other.CompareTag("EnemyBullet"))
             {
+                var vfx = GameInstance.Instance.hitPlayerPool.Get();
+                if (null == vfx.GetComponent<PartycleSystemDisactivate>())
+                    vfx.AddComponent<PartycleSystemDisactivate>();
+                vfx.transform.position = other.transform.position;
+                vfx.gameObject.SetActive(true);
+
+                other.gameObject.SetActive(false);
+                Damage(other);
+            }
+            else if (other.CompareTag("EnemyMelee"))
+            {
+                var vfx = GameInstance.Instance.hitPlayerPool.Get();
+                if (null == vfx.GetComponent<PartycleSystemDisactivate>())
+                    vfx.AddComponent<PartycleSystemDisactivate>();
+                vfx.transform.position = transform.position + other.GetComponent<MeleeController>().vfxOffset;
+                vfx.gameObject.SetActive(true);
+
                 other.gameObject.SetActive(false);
                 Damage(other);
             }
@@ -164,6 +181,11 @@ public class PlayerController : MonoBehaviour
             }
             else if (other.CompareTag("EnemyBullet"))
             {
+                var vfx = GameInstance.Instance.hitPlayerPool.Get();
+                if (null == vfx.GetComponent<PartycleSystemDisactivate>())
+                    vfx.AddComponent<PartycleSystemDisactivate>();
+                vfx.transform.position = other.transform.position;
+                vfx.gameObject.SetActive(true);
 
                 other.gameObject.SetActive(false);
                 Damage(other);
@@ -191,25 +213,77 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void Damage(Collider other)
+    public void Rebirth()
     {
+        transform.position = new Vector3(0f, transform.position.y, 0f);
+        status.Rebirth();
+    }
+
+    public bool Damage(float damage)
+    {
+        if (!canTakeDamage)
+            return false;
+
+        bool org = status.isDead;
+        bool isDead = status.Damage(damage);
+
+        if (!isDead)
+        {
+            DamageEffect();
+            KnockBack();
+        }
+        else if (!org)
+            KnockBack();
+
+        return isDead;
+    }
+
+    bool Damage(Collider other)
+    {
+        if (!canTakeDamage)
+            return false;
+
+        bool org = status.isDead;
         bool isDead = false;
         switch (other.tag)
         {
             case "Enemy":
                 isDead = status.Damage(1f);
                 break;
+            case "EnemyBullet":
+                isDead = status.Damage(1f);
+                break;
+            case "EnemyMelee":
+                isDead = status.Damage(1f);
+                break;
             default:
                 break;
         }
 
-        KnockBack(other.transform);
-        DamageEffect();
+        if (!isDead)
+        {
+            DamageEffect();
+            KnockBack(other.transform);
+        }
+        else if (!org)
+            KnockBack(other.transform);
+
+        return isDead;
     }
 
     void DamageEffect()
     {
         StartCoroutine(FlashCoroutine());
+    }
+
+    void KnockBack()
+    {
+        if (rb != null)
+        {
+            Vector3 knockbackDirection = transform.eulerAngles.y == 180f ? Vector3.right : Vector3.left;
+            knockbackDirection.y = damageInfo.knockbackForce.y;
+            rb.AddForce(knockbackDirection * damageInfo.knockbackForce.x, ForceMode.Impulse);
+        }
     }
 
     void KnockBack(Transform attacker)
@@ -240,5 +314,27 @@ public class PlayerController : MonoBehaviour
         sr.color = Color.white;
         yield return new WaitForSeconds(damageInfo.damageCooldown);
         canTakeDamage = true;
+    }
+
+    public void CanTakeDamage()
+    {
+        canTakeDamage = true;
+    }
+
+    public void CantTakeDamage()
+    {
+        canTakeDamage = false;
+    }
+
+    public void SlowWalking()
+    {
+        animator.speed = 0.2f;
+        playerInfo.moveSpeed = 400f;
+    }
+
+    public void DefaultWalking()
+    {
+        animator.speed = 1f;
+        playerInfo.moveSpeed = 1750f;
     }
 }

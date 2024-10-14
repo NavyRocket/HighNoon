@@ -1,0 +1,606 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8160713219678064515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 364e2869b07fb474eb3ce9aed8de097f, type: 3}
+  m_Name: RangeNode
+  m_EditorClassIdentifier: 
+  blackboard:
+    dynamicFields: []
+    animator: {fileID: 0}
+    rb: {fileID: 0}
+    skillController: {fileID: 0}
+    audioSource: {fileID: 0}
+    owner: {fileID: 0}
+    target: {fileID: 0}
+  description: In 4
+  state: 0
+  started: 0
+  guid: 7e0b2a990327d6e46a170a207754ffe1
+  position: {x: 150, y: 754.6666}
+  child: {fileID: -3025705824634828369}
+  range: 4
+  inRange: 1
+  checkOnce: 0
+--- !u!114 &-6385979649557669252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 503a1bae90687d4489638e26ec6a82f9, type: 3}
+  m_Name: SelectorNode
+  m_EditorClassIdentifier: 
+  blackboard:
+    dynamicFields: []
+    animator: {fileID: 0}
+    rb: {fileID: 0}
+    skillController: {fileID: 0}
+    audioSource: {fileID: 0}
+    owner: {fileID: 0}
+    target: {fileID: 0}
+  description: 
+  state: 0
+  started: 0
+  guid: be1f5ee7152532548bd6e1d899c354bd
+  position: {x: 0, y: 298}
+  children:
+  - {fileID: 2990747437577808714}
+  - {fileID: 6204824599630580726}
+--- !u!114 &-4396976028774349479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 014605ea83e5bd645b4bf0cb54dd063d, type: 3}
+  m_Name: SkillNode
+  m_EditorClassIdentifier: 
+  blackboard:
+    dynamicFields: []
+    animator: {fileID: 0}
+    rb: {fileID: 0}
+    skillController: {fileID: 0}
+    audioSource: {fileID: 0}
+    owner: {fileID: 0}
+    target: {fileID: 0}
+  description: Attack
+  state: 0
+  started: 0
+  guid: cda0d024e7819af46885d18277809f69
+  position: {x: 0, y: 1051.3334}
+  child: {fileID: -4126771623596975753}
+  useManualSkillName: 1
+  selectedSkillName: Attack
+  manualSkillName: Attack
+--- !u!114 &-4126771623596975753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a0a1f97c89ffeb4882a94e20b465025, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  blackboard:
+    dynamicFields: []
+    animator: {fileID: 0}
+    rb: {fileID: 0}
+    skillController: {fileID: 0}
+    audioSource: {fileID: 0}
+    owner: {fileID: 0}
+    target: {fileID: 0}
+  description: 
+  state: 0
+  started: 0
+  guid: 2946b6b4a29c9e340a3db2774d964985
+  position: {x: 0.000015258789, y: 1200.6667}
+  children:
+  - {fileID: 5548779540000899180}
+--- !u!114 &-4071076705845182732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a0a1f97c89ffeb4882a94e20b465025, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  blackboard:
+    dynamicFields: []
+    animator: {fileID: 0}
+    rb: {fileID: 0}
+    skillController: {fileID: 0}
+    audioSource: {fileID: 0}
+    owner: {fileID: 0}
+    target: {fileID: 0}
+  description: 
+  state: 0
+  started: 0
+  guid: 3110892be9b0a2c4097326859c1fa6a2
+  position: {x: 0, y: 904}
+  children:
+  - {fileID: -4396976028774349479}
+--- !u!114 &-3025705824634828369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 364e2869b07fb474eb3ce9aed8de097f, type: 3}
+  m_Name: RangeNode
+  m_EditorClassIdentifier: 
+  blackboard:
+    dynamicFields: []
+    animator: {fileID: 0}
+    rb: {fileID: 0}
+    skillController: {fileID: 0}
+    audioSource: {fileID: 0}
+    owner: {fileID: 0}
+    target: {fileID: 0}
+  description: Out 1
+  state: 0
+  started: 0
+  guid: b3c797961c9a0dc45abcd77193c82956
+  position: {x: 150, y: 904.0001}
+  child: {fileID: 7666543561116086658}
+  range: 1
+  inRange: 0
+  checkOnce: 0
+--- !u!114 &-541083239610107607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fbab29769e79f845a1846120eb741d7, type: 3}
+  m_Name: RootNode
+  m_EditorClassIdentifier: 
+  blackboard:
+    dynamicFields: []
+    animator: {fileID: 0}
+    rb: {fileID: 0}
+    skillController: {fileID: 0}
+    audioSource: {fileID: 0}
+    owner: {fileID: 0}
+    target: {fileID: 0}
+  description: 
+  state: 0
+  started: 0
+  guid: 8297809b58fd34d47a836fc6f8bd6387
+  position: {x: 0, y: 0}
+  child: {fileID: 56038422783527489}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a262413c439f08449a17112b10ff0c0f, type: 3}
+  m_Name: MobA
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: -541083239610107607}
+  treeState: 0
+  blackboard:
+    dynamicFields:
+    - variableName: Hp
+      type: 1
+      intValue: 0
+      floatValue: 10
+      stringValue: 
+      boolValue: 0
+    animator: {fileID: 0}
+    rb: {fileID: 0}
+    skillController: {fileID: 0}
+    audioSource: {fileID: 0}
+    owner: {fileID: 0}
+    target: {fileID: 0}
+  nodes:
+  - {fileID: -541083239610107607}
+  - {fileID: 1400126519779538277}
+  - {fileID: 56038422783527489}
+  - {fileID: 873349215486378528}
+  - {fileID: 1188471210075550768}
+  - {fileID: 2016655801139218413}
+  - {fileID: 5548779540000899180}
+  - {fileID: -8160713219678064515}
+  - {fileID: 2990747437577808714}
+  - {fileID: 8268294966255199744}
+  - {fileID: -6385979649557669252}
+  - {fileID: 6776103162812199494}
+  - {fileID: 513185854735592449}
+  - {fileID: 7666543561116086658}
+  - {fileID: -4071076705845182732}
+  - {fileID: -4396976028774349479}
+  - {fileID: -3025705824634828369}
+  - {fileID: -4126771623596975753}
+  - {fileID: 6204824599630580726}
+--- !u!114 &56038422783527489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b74051e6802ad8479c4f856ef399fdc, type: 3}
+  m_Name: RepeatNode
+  m_EditorClassIdentifier: 
+  blackboard:
+    dynamicFields: []
+    animator: {fileID: 0}
+    rb: {fileID: 0}
+    skillController: {fileID: 0}
+    audioSource: {fileID: 0}
+    owner: {fileID: 0}
+    target: {fileID: 0}
+  description: 
+  state: 0
+  started: 0
+  guid: a5330e2d311afab48b681120f9c92a3a
+  position: {x: 0, y: 149.33333}
+  child: {fileID: -6385979649557669252}
+  _repeatType: 0
+  _count: 1
+  _durationScope: {x: 1, y: 1}
+--- !u!114 &513185854735592449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a21d2c19f5a9fa4eb85df69d2a8b3ab, type: 3}
+  m_Name: ParallelNode
+  m_EditorClassIdentifier: 
+  blackboard:
+    dynamicFields: []
+    animator: {fileID: 0}
+    rb: {fileID: 0}
+    skillController: {fileID: 0}
+    audioSource: {fileID: 0}
+    owner: {fileID: 0}
+    target: {fileID: 0}
+  description: 
+  state: 0
+  started: 0
+  guid: ad30aa3f171164744876a689edcf34f7
+  position: {x: 150.00006, y: 1200.667}
+  children:
+  - {fileID: 2016655801139218413}
+  - {fileID: 6776103162812199494}
+  successThreshold: 1
+--- !u!114 &873349215486378528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 503a1bae90687d4489638e26ec6a82f9, type: 3}
+  m_Name: SelectorNode
+  m_EditorClassIdentifier: 
+  blackboard:
+    dynamicFields: []
+    animator: {fileID: 0}
+    rb: {fileID: 0}
+    skillController: {fileID: 0}
+    audioSource: {fileID: 0}
+    owner: {fileID: 0}
+    target: {fileID: 0}
+  description: 
+  state: 0
+  started: 0
+  guid: f47c19c6368a09741b41df1b751d06a2
+  position: {x: 0, y: 605.3333}
+  children:
+  - {fileID: 1400126519779538277}
+  - {fileID: -8160713219678064515}
+  - {fileID: 1188471210075550768}
+--- !u!114 &1188471210075550768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1d620cb9b3154541a11ca5e8f2069dd, type: 3}
+  m_Name: AnimationNode
+  m_EditorClassIdentifier: 
+  blackboard:
+    dynamicFields: []
+    animator: {fileID: 0}
+    rb: {fileID: 0}
+    skillController: {fileID: 0}
+    audioSource: {fileID: 0}
+    owner: {fileID: 0}
+    target: {fileID: 0}
+  description: Idle
+  state: 0
+  started: 0
+  guid: ea439d7d500ef374e8375596f8728638
+  position: {x: 300, y: 754.6666}
+  _nodeType: 3
+  _floatParam: 
+  _floatValue: 0
+  _intParam: 
+  _intValue: 0
+  _boolParam: 
+  _boolValue: 0
+  _trigger: Idle
+--- !u!114 &1400126519779538277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 364e2869b07fb474eb3ce9aed8de097f, type: 3}
+  m_Name: RangeNode
+  m_EditorClassIdentifier: 
+  blackboard:
+    dynamicFields: []
+    animator: {fileID: 0}
+    rb: {fileID: 0}
+    skillController: {fileID: 0}
+    audioSource: {fileID: 0}
+    owner: {fileID: 0}
+    target: {fileID: 0}
+  description: In 1
+  state: 0
+  started: 0
+  guid: 526d3b1aed5e03e4c9db0abe4ba53c6d
+  position: {x: -0.000019772851, y: 754.6666}
+  child: {fileID: -4071076705845182732}
+  range: 1
+  inRange: 1
+  checkOnce: 0
+--- !u!114 &2016655801139218413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1d620cb9b3154541a11ca5e8f2069dd, type: 3}
+  m_Name: AnimationNode
+  m_EditorClassIdentifier: 
+  blackboard:
+    dynamicFields: []
+    animator: {fileID: 0}
+    rb: {fileID: 0}
+    skillController: {fileID: 0}
+    audioSource: {fileID: 0}
+    owner: {fileID: 0}
+    target: {fileID: 0}
+  description: Walk
+  state: 0
+  started: 0
+  guid: ca491a0a041c5394fa9081cb48eed128
+  position: {x: 149.99997, y: 1350.9337}
+  _nodeType: 3
+  _floatParam: 
+  _floatValue: 0
+  _intParam: 
+  _intValue: 0
+  _boolParam: 
+  _boolValue: 0
+  _trigger: Walk
+--- !u!114 &2990747437577808714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: babf8960ea77f7e468b21930a6bb4cac, type: 3}
+  m_Name: HpNode
+  m_EditorClassIdentifier: 
+  blackboard:
+    dynamicFields: []
+    animator: {fileID: 0}
+    rb: {fileID: 0}
+    skillController: {fileID: 0}
+    audioSource: {fileID: 0}
+    owner: {fileID: 0}
+    target: {fileID: 0}
+  description: Over 0
+  state: 0
+  started: 0
+  guid: e201fd3059f91714fa31250f43ca7bef
+  position: {x: 0.0000398407, y: 450.00006}
+  child: {fileID: 873349215486378528}
+  hpLimit: 0
+  isHpLowCheck: 0
+  includeLimitValue: 0
+--- !u!114 &5548779540000899180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1d620cb9b3154541a11ca5e8f2069dd, type: 3}
+  m_Name: AnimationNode
+  m_EditorClassIdentifier: 
+  blackboard:
+    dynamicFields: []
+    animator: {fileID: 0}
+    rb: {fileID: 0}
+    skillController: {fileID: 0}
+    audioSource: {fileID: 0}
+    owner: {fileID: 0}
+    target: {fileID: 0}
+  description: Attack
+  state: 0
+  started: 0
+  guid: 1749f05a11df82f489d017f0339aeda3
+  position: {x: -0.0000061289466, y: 1350.6667}
+  _nodeType: 3
+  _floatParam: 
+  _floatValue: 0
+  _intParam: 
+  _intValue: 0
+  _boolParam: 
+  _boolValue: 0
+  _trigger: Atk
+--- !u!114 &6204824599630580726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b74051e6802ad8479c4f856ef399fdc, type: 3}
+  m_Name: RepeatNode
+  m_EditorClassIdentifier: 
+  blackboard:
+    dynamicFields: []
+    animator: {fileID: 0}
+    rb: {fileID: 0}
+    skillController: {fileID: 0}
+    audioSource: {fileID: 0}
+    owner: {fileID: 0}
+    target: {fileID: 0}
+  description: 
+  state: 0
+  started: 0
+  guid: a8084637eb81a6b4b88ca01906ce7ab6
+  position: {x: 150, y: 450.00003}
+  child: {fileID: 8268294966255199744}
+  _repeatType: 0
+  _count: 1
+  _durationScope: {x: 1, y: 1}
+--- !u!114 &6776103162812199494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6d3b8bc180aea146bcd7700922f5b5c, type: 3}
+  m_Name: ChaseNode
+  m_EditorClassIdentifier: 
+  blackboard:
+    dynamicFields: []
+    animator: {fileID: 0}
+    rb: {fileID: 0}
+    skillController: {fileID: 0}
+    audioSource: {fileID: 0}
+    owner: {fileID: 0}
+    target: {fileID: 0}
+  description: 
+  state: 0
+  started: 0
+  guid: cb1dab45c2e629d4a8ae292d7419a8cd
+  position: {x: 299.99994, y: 1350.9337}
+  speed: 1000
+--- !u!114 &7666543561116086658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b74051e6802ad8479c4f856ef399fdc, type: 3}
+  m_Name: RepeatNode
+  m_EditorClassIdentifier: 
+  blackboard:
+    dynamicFields: []
+    animator: {fileID: 0}
+    rb: {fileID: 0}
+    skillController: {fileID: 0}
+    audioSource: {fileID: 0}
+    owner: {fileID: 0}
+    target: {fileID: 0}
+  description: 
+  state: 0
+  started: 0
+  guid: 050ee0b1b33a8384fbed2ab3e4701757
+  position: {x: 150, y: 1051.3335}
+  child: {fileID: 513185854735592449}
+  _repeatType: 2
+  _count: 1
+  _durationScope: {x: 0, y: 0}
+--- !u!114 &8268294966255199744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1d620cb9b3154541a11ca5e8f2069dd, type: 3}
+  m_Name: AnimationNode
+  m_EditorClassIdentifier: 
+  blackboard:
+    dynamicFields: []
+    animator: {fileID: 0}
+    rb: {fileID: 0}
+    skillController: {fileID: 0}
+    audioSource: {fileID: 0}
+    owner: {fileID: 0}
+    target: {fileID: 0}
+  description: Die
+  state: 0
+  started: 0
+  guid: 9ba563db0c8672c43a12eb3c22ed655f
+  position: {x: 150, y: 605.3333}
+  _nodeType: 3
+  _floatParam: 
+  _floatValue: 0
+  _intParam: 
+  _intValue: 0
+  _boolParam: 
+  _boolValue: 0
+  _trigger: Die
