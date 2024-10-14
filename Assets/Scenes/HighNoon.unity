@@ -758,6 +758,7 @@ GameObject:
   m_Component:
   - component: {fileID: 708649599}
   - component: {fileID: 708649598}
+  - component: {fileID: 708649600}
   m_Layer: 0
   m_Name: GameInstance
   m_TagString: Untagged
@@ -798,6 +799,8 @@ MonoBehaviour:
     type: 3}
   trainCargoPrefab: {fileID: 3536548019312230238, guid: e7381dc78a4b5b9409b6189ed48e9af0,
     type: 3}
+  trainEmptyPrefab: {fileID: 5695136118729697037, guid: 3e416062b6953df4480018b6fbd36ddb,
+    type: 3}
   trainEnginePrefab: {fileID: 9123846299220359102, guid: 67fce1121e35bc445bfdbde831d1daaf,
     type: 3}
   cargo1: {fileID: 919132149155446097, guid: 3350859888ff38a46aaacaf496ce440d, type: 3}
@@ -818,6 +821,8 @@ MonoBehaviour:
   boss_Prefab: {fileID: 4186178083212417428, guid: 1b47e983ef873784585b453f31beffab,
     type: 3}
   mobNumScope: {x: 2, y: 4}
+  npc: {fileID: 0}
+  boss: {fileID: 0}
   hitPlayerPrefab: {fileID: 3550375677742743855, guid: 8636b878223699a4d907265d038df40a,
     type: 3}
   hitMobPrefab: {fileID: 2720315022997464137, guid: bc95d7f8015c18e4ea8e4bcab853b99c,
@@ -849,6 +854,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &708649600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708649597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b9eb11061c639408edf330576baa7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dontDestroyOnLoad: 0
 --- !u!1 &789230332
 GameObject:
   m_ObjectHideFlags: 0

@@ -100,6 +100,21 @@ public class BulletController : MonoBehaviour
 
             RetrieveBullet();
         }
+        else if (other.CompareTag("Coupler"))
+        {
+            CouplerController engine = other.GetComponent<CouplerController>();
+            if (engine != null)
+                engine.Damage();
+
+            var vfx = GameInstance.Instance.hitMobCriticalPool.Get();
+            if (null == vfx.GetComponent<PartycleSystemDisactivate>())
+                vfx.AddComponent<PartycleSystemDisactivate>();
+            vfx.transform.position = transform.position + vfxOffset + velocity.normalized * vfxOffsetByVelocityNormalized;
+            vfx.transform.rotation = Quaternion.Euler(0f, controller.transform.eulerAngles.y == 0f ? 0f : 180f, controller.gunRadian * Mathf.Rad2Deg);
+            vfx.gameObject.SetActive(true);
+
+            RetrieveBullet();
+        }
     }
 
     public void SetMuzzle(Vector3 _muzzle)

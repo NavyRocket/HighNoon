@@ -23,7 +23,7 @@ public class TrainCargoEvent : MonoBehaviour
         if (!other.gameObject.CompareTag("Player"))
             return;
 
-        if (other.transform.position.x < boundaryCenter)
+        if (GameInstance.Instance.playerController.transform.eulerAngles.y == 0f)
         {
             GameInstance.Instance.BossPeak();
             gameObject.SetActive(false);

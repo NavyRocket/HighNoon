@@ -1,5 +1,31 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8174521402749743507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b03507e0c9255ff45b4c7c7b39d1fa4d, type: 3}
+  m_Name: DebugLogNode
+  m_EditorClassIdentifier: 
+  blackboard:
+    dynamicFields: []
+    animator: {fileID: 0}
+    rb: {fileID: 0}
+    skillController: {fileID: 0}
+    audioSource: {fileID: 0}
+    owner: {fileID: 0}
+    target: {fileID: 0}
+  description: 
+  state: 0
+  started: 0
+  guid: d32986d09d5bc2249ab608d2df5a46b0
+  position: {x: 150, y: 1350}
+  message: B
 --- !u!114 &-7393938704504392625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,8 +191,8 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: c82be81c0fe09d94fa9a5e04853e20e3
-  position: {x: 599.99994, y: 1350}
-  message: asdfasdf
+  position: {x: 300, y: 1431.3334}
+  message: C
 --- !u!114 &-4113111704249686178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,6 +226,32 @@ MonoBehaviour:
   _boolParam: 
   _boolValue: 0
   _trigger: Idle
+--- !u!114 &-2017386486097434803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b03507e0c9255ff45b4c7c7b39d1fa4d, type: 3}
+  m_Name: DebugLogNode
+  m_EditorClassIdentifier: 
+  blackboard:
+    dynamicFields: []
+    animator: {fileID: 0}
+    rb: {fileID: 0}
+    skillController: {fileID: 0}
+    audioSource: {fileID: 0}
+    owner: {fileID: 0}
+    target: {fileID: 0}
+  description: 
+  state: 0
+  started: 0
+  guid: dc9a52c34af037948905b0c1f15a6b73
+  position: {x: 0, y: 1349.9998}
+  message: A
 --- !u!114 &-1751665308797018327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,6 +363,35 @@ MonoBehaviour:
   - {fileID: -4632486970864098914}
   - {fileID: -1751665308797018327}
   - {fileID: -4113111704249686178}
+  - {fileID: -8174521402749743507}
+  - {fileID: -2017386486097434803}
+  - {fileID: 490870222568880053}
+--- !u!114 &490870222568880053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b03507e0c9255ff45b4c7c7b39d1fa4d, type: 3}
+  m_Name: DebugLogNode
+  m_EditorClassIdentifier: 
+  blackboard:
+    dynamicFields: []
+    animator: {fileID: 0}
+    rb: {fileID: 0}
+    skillController: {fileID: 0}
+    audioSource: {fileID: 0}
+    owner: {fileID: 0}
+    target: {fileID: 0}
+  description: 
+  state: 0
+  started: 0
+  guid: 157f2b971871aca4098de37618b48665
+  position: {x: 600, y: 750.6666}
+  message: D
 --- !u!114 &1149441854316942526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,6 +448,7 @@ MonoBehaviour:
   position: {x: 150, y: 1049.3334}
   children:
   - {fileID: -6299860253397036454}
+  - {fileID: -8174521402749743507}
   - {fileID: 1387264177572868484}
 --- !u!114 &1387264177572868484
 MonoBehaviour:
@@ -431,6 +513,7 @@ MonoBehaviour:
   - {fileID: -6500969185241977335}
   - {fileID: 1149441854316942526}
   - {fileID: -4113111704249686178}
+  - {fileID: 490870222568880053}
 --- !u!114 &2003320863716798471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -568,13 +651,13 @@ MonoBehaviour:
     audioSource: {fileID: 0}
     owner: {fileID: 0}
     target: {fileID: 0}
-  description: 
+  description: "\t\t"
   state: 0
   started: 0
   guid: e648b1c9e06c99846a7e2ae2d7c88602
   position: {x: -150, y: 1200}
   delay: 0.3
-  range: 3
+  range: 5
   healAmount: 3
 --- !u!114 &4767932218566425603
 MonoBehaviour:
@@ -662,6 +745,7 @@ MonoBehaviour:
   position: {x: 299.99997, y: 1049.3334}
   children:
   - {fileID: 6506736401602271871}
+  - {fileID: -4632486970864098914}
   - {fileID: 4767932218566425603}
   successThreshold: 1
 --- !u!114 &7033729034108154432
@@ -691,6 +775,7 @@ MonoBehaviour:
   position: {x: -0.00015258789, y: 1049.3334}
   children:
   - {fileID: 3654139730329614301}
+  - {fileID: -2017386486097434803}
   - {fileID: 7247001290590842169}
 --- !u!114 &7247001290590842169
 MonoBehaviour:

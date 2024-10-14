@@ -31,13 +31,9 @@ public class BossController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        floatHeight = floatAmplitude * Mathf.Sin(floatFrequency * Time.time);
-        transform.position = new Vector3(transform.position.x, transform.position.y + floatHeight - previousHeight, transform.position.z);
-        transform.LookAt(GameInstance.Instance.playerController.transform.position);
-        previousHeight = floatHeight;
+        Hover();
 
-        if (Input.GetKeyDown(KeyCode.E))
-            PhaseIn();
+
     }
 
     public void PhaseIn(float delay)
@@ -81,6 +77,14 @@ public class BossController : MonoBehaviour
     }
 
     private void Hover()
+    {
+        floatHeight = floatAmplitude * Mathf.Sin(floatFrequency * Time.time);
+        transform.position = new Vector3(transform.position.x, transform.position.y + floatHeight - previousHeight, transform.position.z);
+        transform.LookAt(GameInstance.Instance.playerController.transform.position);
+        previousHeight = floatHeight;
+    }
+
+    public void MoveToStage()
     {
 
     }
