@@ -6,7 +6,7 @@ public class CameraController : MonoBehaviour
 {
     Transform target;
     Vector3 offset;
-    [SerializeField] float smoothSpeed = 0.025f;
+    [SerializeField] float smoothSpeed = 1f;
 
     private Vector3 _initialShakePos = Vector3.zero;
     private Vector3 _magnitude = Vector3.one;
@@ -51,5 +51,21 @@ public class CameraController : MonoBehaviour
             yield return null;
         }
         transform.localPosition = _initialShakePos;
+    }
+
+    public void SetTargetToPlayer(float delay)
+    {
+        Invoke("SetTarget", delay);
+    }
+
+    public void SetTarget(Transform _target)
+    {
+        target = _target;
+    }
+
+    public void SetTarget()
+    {
+        target = GameInstance.Instance.playerController.transform;
+        GameInstance.Instance.playerController.DefaultWalking();
     }
 }

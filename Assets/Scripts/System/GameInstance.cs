@@ -52,12 +52,14 @@ public class GameInstance : SingletonMonoBehaviour<GameInstance>
     [SerializeField] float near = 5f;
     public CameraController cameraController;
 
-    [SerializeField] GameObject _canvas;
-    [SerializeField] GameObject _speech;
+    [SerializeField] Canvas _canvas;
+    [SerializeField] CanvasGroup _heartPanelCG;
     [SerializeField] Inventory _inventory;
     [SerializeField] RebirthMenu _rebirthMenu;
-    public Inventory myInventory;
-    public RebirthMenu myRebirthMenu;
+    [HideInInspector] public Inventory myInventory;
+    [HideInInspector] public RebirthMenu myRebirthMenu;
+
+    public CanvasGroup heartPanelCG { get { return _heartPanelCG; } }
 
     [SerializeField] Transform trainObjects;
     [SerializeField] Transform railObjects;
@@ -79,6 +81,7 @@ public class GameInstance : SingletonMonoBehaviour<GameInstance>
     [SerializeField] Vector2 mobNumScope = Vector2.zero;
 
     private NPCController npc;
+    private BossController boss;
     public GameObject hitPlayerPrefab;
     public GameObject hitMobPrefab;
     public GameObject hitMobCriticalPrefab;
@@ -97,8 +100,9 @@ public class GameInstance : SingletonMonoBehaviour<GameInstance>
 
     Dictionary<int, GameObject> trainByIndex = new Dictionary<int, GameObject>();
     LinkedList<GameObject> railDeque = new LinkedList<GameObject>();
-
     public int currentTrainIndex { get; set; }
+    public bool bossSceneReady => _score >= 1;
+    public bool bossPeak = false;
 
     void Start()
     {
@@ -107,28 +111,9 @@ public class GameInstance : SingletonMonoBehaviour<GameInstance>
 
         cameraController = mainCamera.GetComponent<CameraController>();
 
-        currentTrainIndex = 0;
-        if (trainByIndex.Count == 0)
-        {
-            trainByIndex.Add(0, Instantiate(trainPassengerPrefab, trainObjects));
-            trainByIndex.Add(1, Instantiate(trainPassengerPrefab, trainObjects));
-            trainByIndex[1].transform.localPosition = trainByIndex[0].transform.localPosition;
-            trainByIndex[1].transform.localPosition = new Vector3(trainByIndex[1].transform.localPosition.x + 1 * trainInterval,
-                trainByIndex[1].transform.localPosition.y, trainByIndex[1].transform.localPosition.z);
-        }
-        if (railDeque.Count == 0)
-        {
-            railDeque.AddLast(Instantiate(railPrefab, railObjects));
-            railDeque.Last.Value.transform.localPosition = new Vector3(-railInterval, -0.5f, 0.8f);
-            railDeque.AddLast(Instantiate(railPrefab, railObjects));
-            railDeque.Last.Value.transform.localPosition = new Vector3(0f, -0.5f, 0.8f);
-            railDeque.AddLast(Instantiate(railPrefab, railObjects));
-            railDeque.Last.Value.transform.localPosition = new Vector3(railInterval, -0.5f, 0.8f);
-        }
-
-        npc = Instantiate(npc_Prefab, mobPool).GetComponent<NPCController>();
+        npc = Instantiate(npc_Prefab).GetComponent<NPCController>();
         npc.transform.localPosition = new Vector3(playerController.transform.position.x + 5f, npcY, 0f);
-        npc.WelcomeMessage(1f);
+        npc.speech.Speak(1f, "오랜만이군...");
 
         hitPlayerPool = new ObjectPool<ParticleSystem>(() =>
         {
@@ -170,6 +155,25 @@ public class GameInstance : SingletonMonoBehaviour<GameInstance>
             return ps;
         }, 1);
 
+        currentTrainIndex = 0;
+        if (trainByIndex.Count == 0)
+        {
+            trainByIndex.Add(0, Instantiate(trainPassengerPrefab, trainObjects));
+            trainByIndex.Add(1, Instantiate(trainPassengerPrefab, trainObjects));
+            trainByIndex[1].transform.localPosition = trainByIndex[0].transform.localPosition;
+            trainByIndex[1].transform.localPosition = new Vector3(trainByIndex[1].transform.localPosition.x + 1 * trainInterval,
+                trainByIndex[1].transform.localPosition.y, trainByIndex[1].transform.localPosition.z);
+        }
+        if (railDeque.Count == 0)
+        {
+            railDeque.AddLast(Instantiate(railPrefab, railObjects));
+            railDeque.Last.Value.transform.localPosition = new Vector3(-railInterval, -0.5f, 0.8f);
+            railDeque.AddLast(Instantiate(railPrefab, railObjects));
+            railDeque.Last.Value.transform.localPosition = new Vector3(0f, -0.5f, 0.8f);
+            railDeque.AddLast(Instantiate(railPrefab, railObjects));
+            railDeque.Last.Value.transform.localPosition = new Vector3(railInterval, -0.5f, 0.8f);
+        }
+
         myInventory = Instantiate(_inventory.gameObject, _canvas.transform).GetComponent<Inventory>();
         myInventory.gameObject.SetActive(false);
         myRebirthMenu = Instantiate(_rebirthMenu.gameObject, _canvas.transform).GetComponent<RebirthMenu>();
@@ -187,9 +191,7 @@ public class GameInstance : SingletonMonoBehaviour<GameInstance>
 
         if (Input.GetKeyDown(KeyCode.Space))
             playerController.Damage(100f);
-
-        if (Input.GetKeyDown(KeyCode.L))
-            phase = PHASE.PHASE2;
+        Debug.Log(currentTrainIndex);
     }
 
     //  public Vector3 CursorWorldPosition(float? z = null)
@@ -232,25 +234,43 @@ public class GameInstance : SingletonMonoBehaviour<GameInstance>
         GameInstance.Instance.currentTrainIndex += 1;
         if (!trainByIndex.ContainsKey(currentTrainIndex + 1))
         {
-            switch (phase)
+            int mobCount = 0;
+            if (bossSceneReady && !bossPeak)
             {
-                case PHASE.PHASE1:
-                    trainByIndex.Add(currentTrainIndex + 1, Instantiate(trainPassengerPrefab, trainObjects));
-                    break;
-                case PHASE.PHASE2:
-                    trainByIndex.Add(currentTrainIndex + 1, Instantiate(Random.value < 0.5f ? trainPassengerPrefab : trainCargoPrefab, trainObjects));
-                    break;
+                mobCount = Random.Range((int)mobNumScope.x, (int)mobNumScope.y);
+                trainByIndex.Add(currentTrainIndex + 1, Instantiate(trainCargoPrefab, trainObjects));
             }
+            else switch (phase)
+                {
+                    case PHASE.PHASE1:
+                        mobCount = currentTrainIndex;
+                        trainByIndex.Add(currentTrainIndex + 1, Instantiate(trainPassengerPrefab, trainObjects));
+                        break;
+                    case PHASE.PHASE2:
+                        mobCount = Random.Range((int)mobNumScope.x, (int)mobNumScope.y);
+                        trainByIndex.Add(currentTrainIndex + 1, Instantiate(Random.value < 0.5f ? trainPassengerPrefab : trainCargoPrefab, trainObjects));
+                        break;
+                }
             trainByIndex[currentTrainIndex + 1].transform.localPosition = trainByIndex[0].transform.localPosition;
             trainByIndex[currentTrainIndex + 1].transform.localPosition = new Vector3(trainByIndex[currentTrainIndex + 1].transform.localPosition.x + (currentTrainIndex + 1) * trainInterval,
                 trainByIndex[currentTrainIndex + 1].transform.localPosition.y, trainByIndex[currentTrainIndex + 1].transform.localPosition.z);
 
-            int mobCount = Random.Range((int)mobNumScope.x, (int)mobNumScope.y);
             for (int i = 0; i < mobCount; ++i)
             {
                 SpawnEnemy((ENEMY)Random.Range(0, (int)ENEMY.END));
             }
         }
+    }
+
+    public void BossPeak()
+    {
+        bossPeak = true;
+        boss = Instantiate(boss_Prefab, mobPool).GetComponent<BossController>();
+        boss.transform.position = new Vector3(trainByIndex[currentTrainIndex].transform.position.x, 1.6f, 4f);
+        cameraController.SetTarget(boss.transform);
+        boss.PhaseIn(0.5f);
+        cameraController.SetTargetToPlayer(3f);
+        playerController.SlowWalking();
     }
 
     private void SpawnEnemy(ENEMY type)
@@ -300,5 +320,47 @@ public class GameInstance : SingletonMonoBehaviour<GameInstance>
     {
         score += value;
         return score;
+    }
+
+    public void ResetLevel()
+    {
+        switch (phase)
+        {
+            case PHASE.PHASE1:
+                npc.speech.Speak(2f, "많이 늙었군...");
+                break;
+            case PHASE.PHASE2:
+                switch (Random.Range(0, 2))
+                {
+                    case 0:
+                        npc.speech.Speak(2f, "그렇게 죽음을 거듭한다면...");
+                        npc.speech.Speak(5f, "진짜 죽음이 그대를 덮칠걸세...");
+                        break;
+                    case 1:
+                        npc.speech.Speak(2f, "자네 혹시...");
+                        npc.speech.Speak(5f, "구르는 방법을 까먹은 것 아닌가?");
+                        break;
+                }
+                break;
+        }
+        
+        GameInstance.Instance.phase = PHASE.PHASE2;
+        VolumeManager.Instance.OpenEye();
+
+        trainByIndex.Clear();
+        foreach (Transform child in trainObjects)
+            Destroy(child.gameObject);
+        foreach (Transform child in mobPool)
+            Destroy(child.gameObject);
+
+        currentTrainIndex = 0;
+        if (trainByIndex.Count == 0)
+        {
+            trainByIndex.Add(0, Instantiate(trainPassengerPrefab, trainObjects));
+            trainByIndex.Add(1, Instantiate(trainPassengerPrefab, trainObjects));
+            trainByIndex[1].transform.localPosition = trainByIndex[0].transform.localPosition;
+            trainByIndex[1].transform.localPosition = new Vector3(trainByIndex[1].transform.localPosition.x + 1 * trainInterval,
+                trainByIndex[1].transform.localPosition.y, trainByIndex[1].transform.localPosition.z);
+        }
     }
 }

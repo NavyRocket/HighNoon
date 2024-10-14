@@ -215,9 +215,7 @@ public class PlayerController : MonoBehaviour
 
     public void Rebirth()
     {
-        GameInstance.Instance.phase = PHASE.PHASE2;
         transform.position = new Vector3(0f, transform.position.y, 0f);
-        VolumeManager.Instance.OpenEye();
         status.Rebirth();
     }
 
@@ -326,5 +324,17 @@ public class PlayerController : MonoBehaviour
     public void CantTakeDamage()
     {
         canTakeDamage = false;
+    }
+
+    public void SlowWalking()
+    {
+        animator.speed = 0.2f;
+        playerInfo.moveSpeed = 400f;
+    }
+
+    public void DefaultWalking()
+    {
+        animator.speed = 1f;
+        playerInfo.moveSpeed = 1750f;
     }
 }

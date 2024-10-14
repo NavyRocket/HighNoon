@@ -111,17 +111,20 @@ public class Enemy : MonoBehaviour
         if (!isDead)
             return;
 
-        switch (enemy)
+        if (PHASE.PHASE1 != GameInstance.Instance.phase)
         {
-            case ENEMY.A:
-                GameInstance.Instance.IncreaseScore(5);
-                break;
-            case ENEMY.B:
-                GameInstance.Instance.IncreaseScore(15);
-                break;
-            case ENEMY.C:
-                GameInstance.Instance.IncreaseScore(10);
-                break;
+            switch (enemy)
+            {
+                case ENEMY.A:
+                    GameInstance.Instance.IncreaseScore(5);
+                    break;
+                case ENEMY.B:
+                    GameInstance.Instance.IncreaseScore(15);
+                    break;
+                case ENEMY.C:
+                    GameInstance.Instance.IncreaseScore(10);
+                    break;
+            }
         }
 
         DropItem();

@@ -234,12 +234,12 @@ PrefabInstance:
     - target: {fileID: 1306955225622660742, guid: 8b9b4ab014898fd4fad1697851817174,
         type: 3}
       propertyPath: m_fontColor.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1306955225622660742, guid: 8b9b4ab014898fd4fad1697851817174,
         type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 16777215
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2664184617590978671, guid: 8b9b4ab014898fd4fad1697851817174,
         type: 3}
@@ -371,11 +371,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4605404733308903471, guid: 8b9b4ab014898fd4fad1697851817174,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4713752992349265613, guid: 8b9b4ab014898fd4fad1697851817174,
         type: 3}
       propertyPath: target
@@ -434,15 +429,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7061239223958746034, guid: 8b9b4ab014898fd4fad1697851817174,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4735901238742592584}
   m_SourcePrefab: {fileID: 100100000, guid: 8b9b4ab014898fd4fad1697851817174, type: 3}
+--- !u!1 &2623427324862829074 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7061239223958746034, guid: 8b9b4ab014898fd4fad1697851817174,
+    type: 3}
+  m_PrefabInstance: {fileID: 5014413939734028704}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &4735901238742592584
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2623427324862829074}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!114 &4107382588440325614 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8977534821563698254, guid: 8b9b4ab014898fd4fad1697851817174,
     type: 3}
   m_PrefabInstance: {fileID: 5014413939734028704}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2623427324862829074}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a1e9f83bd1e86c149bfea1efc9906cf2, type: 3}

@@ -1554,9 +1554,16 @@ MonoBehaviour:
   - {fileID: 3406117093378708454}
   - {fileID: 2761828840320237906}
   - {fileID: 2481910950830440119}
+  canvasGroup: {fileID: 8884768507933812350}
 --- !u!224 &3626056036741216681 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 358175800277755316, guid: 2c88bc9b157b694469891c5cf1b0befa,
+    type: 3}
+  m_PrefabInstance: {fileID: 3939005074787572765}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &8884768507933812350 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 5613492691495320163, guid: 2c88bc9b157b694469891c5cf1b0befa,
     type: 3}
   m_PrefabInstance: {fileID: 3939005074787572765}
   m_PrefabAsset: {fileID: 0}

@@ -9,7 +9,7 @@ public class SlotController : MonoBehaviour, IScrollHandler //https://higatsuryu
 {
     ScrollRect scrollRect;
 
-    public void OnScroll(PointerEventData eventData) { scrollRect.OnScroll(eventData); }
+    public void OnScroll(PointerEventData eventData) { if (scrollRect != null) scrollRect.OnScroll(eventData); }
 
     //자식개체 반환 시 transform.GetChild(int index).gameObject 사용 가능
     [SerializeField] GameObject Item;
@@ -128,12 +128,7 @@ public class SlotController : MonoBehaviour, IScrollHandler //https://higatsuryu
                 break;
         }
 
-        Debug.Log(GameInstance.Instance.playerController.status.maxHp);
-        Debug.Log(GameInstance.Instance.playerController.status.hp);
         GameInstance.Instance.playerController.status.maxHp -= _bloodRequire;
         GameInstance.Instance.playerController.status.hp = Mathf.Min(GameInstance.Instance.playerController.status.hp, GameInstance.Instance.playerController.status.maxHp);
-        Debug.Log(_bloodRequire);
-        Debug.Log(GameInstance.Instance.playerController.status.maxHp);
-        Debug.Log(GameInstance.Instance.playerController.status.hp);
     }
 }
