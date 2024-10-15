@@ -56,9 +56,9 @@ Material:
     - _DecalMeshViewBias: 0
     - _DrawOrder: 0
     - _Edge_Laser: 20
-    - _Flow: 0
+    - _Flow: 1
     - _Flow_Size: 0.1
-    - _Laser_Size: 100
+    - _Laser_Size: -100
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:

@@ -47,7 +47,7 @@ public class BossController : MonoBehaviour
         Hover();
 
         if (wind)
-            rb.AddForce(new Vector3(-3f, 0f, 1f).normalized, ForceMode.Acceleration);
+            rb.AddForce(new Vector3(-2f, 0f, 1f).normalized * 1.5f, ForceMode.Acceleration);
     }
 
     public void Damage(float damage)
