@@ -295,7 +295,7 @@ public class GameInstance : SingletonMonoBehaviour<GameInstance>
 
             for (int i = 0; i < mobCount; ++i)
             {
-                SpawnEnemy((ENEMY)Random.Range(0, (int)ENEMY.END));
+                SpawnEnemy((ENEMY)Random.Range(0, (int)ENEMY.BOSS));
             }
         }
     }
@@ -314,7 +314,7 @@ public class GameInstance : SingletonMonoBehaviour<GameInstance>
     public void PrepareBoss()
     {
         TimeManager.Instance.TimeScaleEaseOutSine(0.5f, 1f, 1.5f, 0.35f);
-        StartCoroutine(TranslateBoss(new Vector3(trainByIndex[engineIndex].transform.position.x - 2f, boss.transform.position.y, boss.transform.position.z), 5f));
+        StartCoroutine(TranslateBoss(new Vector3(trainByIndex[engineIndex].transform.position.x - 2f, boss.transform.position.y + 1f, boss.transform.position.z), 5f));
         VolumeManager.Instance.PaniniEffect(0.75f, 0.5f, 1f, 1f);
     }
     IEnumerator TranslateBoss(Vector3 destination, float duration)
@@ -408,6 +408,10 @@ public class GameInstance : SingletonMonoBehaviour<GameInstance>
                     case 1:
                         npc.speech.Speak(2f, "자네 혹시...");
                         npc.speech.Speak(5f, "구르는 방법을 까먹은 것 아닌가?");
+                        break;
+                    case 2:
+                        npc.speech.Speak(2f, "생명을 대가로 치루고서도...");
+                        npc.speech.Speak(5f, "계속 나아갈 가치가 있는가?");
                         break;
                 }
                 break;

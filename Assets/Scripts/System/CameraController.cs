@@ -52,7 +52,7 @@ public class CameraController : MonoBehaviour
         while (timer <= duration)
         {
             Vector3 random = new Vector3(Random.Range(-1f, 1f) * _magnitude.x, Random.Range(-1f, 1f) * _magnitude.y, Random.Range(-1f, 1f) * _magnitude.z);
-            transform.localPosition = _initialShakePos + random;;
+            transform.localPosition = _initialShakePos + random;
             timer += Time.deltaTime;
             yield return null;
         }

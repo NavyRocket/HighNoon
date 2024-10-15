@@ -5,7 +5,7 @@ using UnityEngine;
 public class CouplerController : MonoBehaviour
 {
     static float engineTrainBossOffsetX = -0.5f;
-    static float bossPositionY = 1.8f;
+    static float bossPositionY = 2.2f;
     static float bossPositionZ = 0.8f;
 
     [SerializeField] TrainEngineController engine;
@@ -66,5 +66,6 @@ public class CouplerController : MonoBehaviour
             yield return null;
         }
         GameInstance.Instance.boss.transform.position = destination;
+        GameInstance.Instance.boss.FireLaser();
     }
 }

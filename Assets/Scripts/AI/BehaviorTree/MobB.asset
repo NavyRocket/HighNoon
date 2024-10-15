@@ -448,7 +448,6 @@ MonoBehaviour:
   position: {x: 150, y: 1049.3334}
   children:
   - {fileID: -6299860253397036454}
-  - {fileID: -8174521402749743507}
   - {fileID: 1387264177572868484}
 --- !u!114 &1387264177572868484
 MonoBehaviour:
@@ -513,7 +512,6 @@ MonoBehaviour:
   - {fileID: -6500969185241977335}
   - {fileID: 1149441854316942526}
   - {fileID: -4113111704249686178}
-  - {fileID: 490870222568880053}
 --- !u!114 &2003320863716798471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -745,7 +743,6 @@ MonoBehaviour:
   position: {x: 299.99997, y: 1049.3334}
   children:
   - {fileID: 6506736401602271871}
-  - {fileID: -4632486970864098914}
   - {fileID: 4767932218566425603}
   successThreshold: 1
 --- !u!114 &7033729034108154432
@@ -775,7 +772,6 @@ MonoBehaviour:
   position: {x: -0.00015258789, y: 1049.3334}
   children:
   - {fileID: 3654139730329614301}
-  - {fileID: -2017386486097434803}
   - {fileID: 7247001290590842169}
 --- !u!114 &7247001290590842169
 MonoBehaviour:

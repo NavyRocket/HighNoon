@@ -15,7 +15,7 @@ MonoBehaviour:
   m_Active: 1
   settings:
     renderPassEvent: 550
-    screenHeight: 180
+    screenHeight: 210
     filterMode: 0
 --- !u!114 &-1878332245247344467
 MonoBehaviour:
