@@ -107,7 +107,8 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 0754bd38ac1c73b4b87761b9a7631c9f
-  position: {x: -150.00003, y: 1350.6667}
+  position: {x: -150, y: 1350.6667}
+  delay: 0.3
 --- !u!114 &-4396976028774349479
 MonoBehaviour:
   m_ObjectHideFlags: 0

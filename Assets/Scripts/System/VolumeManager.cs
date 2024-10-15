@@ -116,4 +116,48 @@ public class VolumeManager : SingletonMonoBehaviour<VolumeManager>
         chr.intensity.value = endValue;
     }
 
+    public void PaniniEffect(float delay, float duration, float increaseDuration, float decreaseDuration)
+    {
+        StartCoroutine(PaniniStep(delay, duration, increaseDuration, decreaseDuration));
+    }
+    IEnumerator PaniniStep(float delay, float duration, float increaseDuration, float decreaseDuration)
+    {
+        yield return new WaitForSeconds(delay);
+        yield return StartCoroutine(PaniniLerp(0f, 1f, increaseDuration));
+        yield return new WaitForSeconds(duration);
+        yield return StartCoroutine(PaniniLerp(1f, 0f, decreaseDuration));
+    }
+    IEnumerator PaniniLerp(float startValue, float endValue, float duration)
+    {
+        float timeAcc = 0f;
+        while (timeAcc < duration)
+        {
+            timeAcc += Time.deltaTime;
+            pnn.distance.value = Mathf.Lerp(startValue, endValue, timeAcc / duration);
+            chr.intensity.value = Mathf.Lerp(startValue, endValue, timeAcc / duration);
+            yield return null;
+        }
+        pnn.distance.value = endValue;
+        chr.intensity.value = endValue;
+    }
+
+    public void DOFInside()
+    {
+        StartCoroutine(DOFEndLerp(4000f, 100f, 5f));
+    }
+    public void DOFOutside()
+    {
+        StartCoroutine(DOFEndLerp(100f, 4000f, 5f));
+    }
+    IEnumerator DOFEndLerp(float startValue, float endValue, float duration)
+    {
+        float timeAcc = 0f;
+        while (timeAcc < duration)
+        {
+            timeAcc += Time.deltaTime;
+            dof.gaussianEnd.value = Mathf.Lerp(startValue, endValue, timeAcc / duration);
+            yield return null;
+        }
+        dof.gaussianEnd.value = endValue;
+    }
 }

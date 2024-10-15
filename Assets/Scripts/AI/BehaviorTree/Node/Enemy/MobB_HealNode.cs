@@ -32,7 +32,7 @@ public class MobB_HealNode : ActionNode
         Enemy[] enemies = GameInstance.Instance.mobPool.GetComponentsInChildren<Enemy>();
         foreach (Enemy enemy in enemies)
         {
-            if (Vector3.Distance(GameInstance.Instance.playerController.transform.position, enemy.transform.position) > range)
+            if (Vector3.Distance(blackboard.owner.transform.position, enemy.transform.position) > range)
                 continue;
 
             if (enemy.enemy == ENEMY.A || enemy.enemy == ENEMY.C)

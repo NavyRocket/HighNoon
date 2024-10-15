@@ -9,6 +9,7 @@ public enum ENEMY
     A,
     B,
     C,
+    BOSS,
     END
 }
 
@@ -72,7 +73,8 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        FacePlayer();
+        if (ENEMY.BOSS != enemy)
+            FacePlayer();
     }
 
     void FacePlayer()
@@ -103,7 +105,12 @@ public class Enemy : MonoBehaviour
             return;
 
         if (!isDead)
-            btRunner.tree.blackboard.Set<float>("Hp", Mathf.Max(hp - damage, 0f));
+        {
+            if (null != btRunner)
+                btRunner.tree.blackboard.Set<float>("Hp", Mathf.Max(hp - damage, 0f));
+            else if (ENEMY.BOSS == enemy)
+                GameInstance.Instance.boss.Damage(damage);
+        }
     }
 
     public void DisableObject()

@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    static float defaultFov = 60f;
+    static float wideFov = 75f;
+
+    Camera cam;
     Transform target;
     Vector3 offset;
     [SerializeField] float smoothSpeed = 1f;
@@ -11,10 +15,12 @@ public class CameraController : MonoBehaviour
     private Vector3 _initialShakePos = Vector3.zero;
     private Vector3 _magnitude = Vector3.one;
     private float _fixedZ = 0f;
+    private bool isWideView = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        cam = GetComponent<Camera>();
         target = GameInstance.Instance.GetPlayerController().transform;
         offset = GameInstance.Instance.GetPlayerController().transform.position - transform.position;
         _fixedZ = transform.position.z;
@@ -46,7 +52,7 @@ public class CameraController : MonoBehaviour
         while (timer <= duration)
         {
             Vector3 random = new Vector3(Random.Range(-1f, 1f) * _magnitude.x, Random.Range(-1f, 1f) * _magnitude.y, Random.Range(-1f, 1f) * _magnitude.z);
-            transform.localPosition = _initialShakePos + random;;
+            transform.localPosition = _initialShakePos + random;
             timer += Time.deltaTime;
             yield return null;
         }
@@ -67,5 +73,36 @@ public class CameraController : MonoBehaviour
     {
         target = GameInstance.Instance.playerController.transform;
         GameInstance.Instance.playerController.DefaultWalking();
+    }
+
+    public void DefaultView()
+    {
+        if (isWideView)
+        {
+            offset += new Vector3(0f, 0.5f, 0f);
+            StartCoroutine(ChangeFOV(wideFov, defaultFov, 2f));
+        }
+        isWideView = false;
+    }
+    public void WideView()
+    {
+        if (!isWideView)
+        {
+            offset -= new Vector3(0f, 0.5f, 0f);
+            StartCoroutine(ChangeFOV(defaultFov, wideFov, 2f));
+        }
+        isWideView = true;
+    }
+    IEnumerator ChangeFOV(float currentFov, float targetFov, float duration)
+    {
+        float timeAcc = 0f;
+        while (timeAcc < duration)
+        {
+            timeAcc += Time.deltaTime;
+            float ratio = timeAcc / duration;
+            cam.fieldOfView = EasingFunction.EaseOutSine(currentFov, targetFov, ratio);
+            yield return null;
+        }
+        cam.fieldOfView = targetFov;
     }
 }

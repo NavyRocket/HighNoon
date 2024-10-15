@@ -80,9 +80,9 @@ GameObject:
   - component: {fileID: 2105407121897251851}
   - component: {fileID: 889569994362555580}
   - component: {fileID: 9116100011285984334}
-  - component: {fileID: 8262980772233401790}
   - component: {fileID: 6563091425464686344}
   - component: {fileID: 7028840894133975847}
+  - component: {fileID: 8262980772233401790}
   m_Layer: 0
   m_Name: MobA
   m_TagString: Enemy
@@ -229,26 +229,6 @@ CapsuleCollider:
   m_Height: 5.25
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8262980772233401790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9136809817495462257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8810c817725f00247a9747c03dbf13fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: 0
-  meleeCollider: {fileID: 2581839184442313081}
-  mobC_FireballPrefab: {fileID: 5021308867378907003, guid: aa0b8dfa36c754f4398722d2e07c8070,
-    type: 3}
-  poolObject: {fileID: 0}
-  _hp: 0
-  maxHp: 10
-  overwriteBtHp: 0
 --- !u!114 &6563091425464686344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,3 +261,23 @@ MonoBehaviour:
       coolTime: 2.5
       currentStock: 1
       currentCoolTime: 0
+--- !u!114 &8262980772233401790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9136809817495462257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8810c817725f00247a9747c03dbf13fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: 0
+  meleeCollider: {fileID: 2581839184442313081}
+  mobC_FireballPrefab: {fileID: 5021308867378907003, guid: aa0b8dfa36c754f4398722d2e07c8070,
+    type: 3}
+  poolObject: {fileID: 0}
+  _hp: 0
+  maxHp: 10
+  overwriteBtHp: 0

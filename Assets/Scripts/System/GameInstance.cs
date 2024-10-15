@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEngine.GraphicsBuffer;
 
 public enum PHASE
 {
@@ -65,6 +66,7 @@ public class GameInstance : SingletonMonoBehaviour<GameInstance>
     [SerializeField] Transform railObjects;
     [SerializeField] GameObject trainPassengerPrefab;
     [SerializeField] GameObject trainCargoPrefab;
+    [SerializeField] GameObject trainEmptyPrefab;
     [SerializeField] GameObject trainEnginePrefab;
     [SerializeField] GameObject cargo1;
     [SerializeField] GameObject cargo2;
@@ -80,8 +82,8 @@ public class GameInstance : SingletonMonoBehaviour<GameInstance>
     [SerializeField] GameObject boss_Prefab;
     [SerializeField] Vector2 mobNumScope = Vector2.zero;
 
-    private NPCController npc;
-    private BossController boss;
+    public NPCController npc;
+    public BossController boss;
     public GameObject hitPlayerPrefab;
     public GameObject hitMobPrefab;
     public GameObject hitMobCriticalPrefab;
@@ -102,7 +104,9 @@ public class GameInstance : SingletonMonoBehaviour<GameInstance>
     LinkedList<GameObject> railDeque = new LinkedList<GameObject>();
     public int currentTrainIndex { get; set; }
     public bool bossSceneReady => _score >= 1;
-    public bool bossPeak = false;
+    [HideInInspector] public bool bossPeak = false;
+    private bool spawnRightTrain = true;
+    private int engineIndex = 0;
 
     void Start()
     {
@@ -191,7 +195,6 @@ public class GameInstance : SingletonMonoBehaviour<GameInstance>
 
         if (Input.GetKeyDown(KeyCode.Space))
             playerController.Damage(100f);
-        Debug.Log(currentTrainIndex);
     }
 
     //  public Vector3 CursorWorldPosition(float? z = null)
@@ -213,7 +216,7 @@ public class GameInstance : SingletonMonoBehaviour<GameInstance>
             node.Value.transform.localPosition = newValue;
         }
 
-        if (railDeque.First.Value.transform.localPosition.x <= GameInstance.Instance.playerController.transform.position.x - railInterval)
+        if (railDeque.First.Value.transform.localPosition.x <= playerController.transform.position.x - railInterval)
         {
             GameObject firstValue = railDeque.First.Value;
             railDeque.RemoveFirst();
@@ -226,21 +229,52 @@ public class GameInstance : SingletonMonoBehaviour<GameInstance>
 
     public void EnterTrainLeft()
     {
-        GameInstance.Instance.currentTrainIndex -= 1;
+        currentTrainIndex -= 1;
     }
 
     public void EnterTrainRight()
     {
-        GameInstance.Instance.currentTrainIndex += 1;
+        currentTrainIndex += 1;
+
+        if (!spawnRightTrain)
+            return;
+
         if (!trainByIndex.ContainsKey(currentTrainIndex + 1))
         {
             int mobCount = 0;
             if (bossSceneReady && !bossPeak)
             {
+                spawnRightTrain = false;
+                engineIndex = currentTrainIndex + 5;
                 mobCount = Random.Range((int)mobNumScope.x, (int)mobNumScope.y);
                 trainByIndex.Add(currentTrainIndex + 1, Instantiate(trainCargoPrefab, trainObjects));
+                trainByIndex.Add(currentTrainIndex + 2, Instantiate(trainPassengerPrefab, trainObjects));
+                trainByIndex.Add(currentTrainIndex + 3, Instantiate(trainEmptyPrefab, trainObjects));
+                trainByIndex.Add(currentTrainIndex + 4, Instantiate(trainEmptyPrefab, trainObjects));
+                trainByIndex.Add(currentTrainIndex + 5, Instantiate(trainEnginePrefab, trainObjects));
+
+                for (int i = 1; i <= 5; ++i)
+                {
+                    trainByIndex[currentTrainIndex + i].transform.localPosition = trainByIndex[0].transform.localPosition;
+                    trainByIndex[currentTrainIndex + i].transform.localPosition = new Vector3(
+                        trainByIndex[currentTrainIndex + i].transform.localPosition.x + (currentTrainIndex + i) * trainInterval,
+                        trainByIndex[currentTrainIndex + i].transform.localPosition.y,
+                        trainByIndex[currentTrainIndex + i].transform.localPosition.z);
+                }
+                trainByIndex[currentTrainIndex + 5].transform.localPosition = new Vector3(
+                    trainByIndex[currentTrainIndex + 5].transform.localPosition.x - 5.23f,
+                    trainByIndex[currentTrainIndex + 5].transform.localPosition.y,
+                    trainByIndex[currentTrainIndex + 5].transform.localPosition.z);
+
+                trainByIndex[currentTrainIndex + 2].GetComponent<BoxCollider>().enabled = true;
+                trainByIndex[currentTrainIndex + 2].GetComponent<TrainEventController>().enabled = true;
+
+                npc.transform.position = new Vector3(trainByIndex[currentTrainIndex + 2].transform.position.x + 6.5f, npcY, 0f);
+                npc.PrepareMessage();
             }
-            else switch (phase)
+            else
+            {
+                switch (phase)
                 {
                     case PHASE.PHASE1:
                         mobCount = currentTrainIndex;
@@ -251,13 +285,17 @@ public class GameInstance : SingletonMonoBehaviour<GameInstance>
                         trainByIndex.Add(currentTrainIndex + 1, Instantiate(Random.value < 0.5f ? trainPassengerPrefab : trainCargoPrefab, trainObjects));
                         break;
                 }
-            trainByIndex[currentTrainIndex + 1].transform.localPosition = trainByIndex[0].transform.localPosition;
-            trainByIndex[currentTrainIndex + 1].transform.localPosition = new Vector3(trainByIndex[currentTrainIndex + 1].transform.localPosition.x + (currentTrainIndex + 1) * trainInterval,
-                trainByIndex[currentTrainIndex + 1].transform.localPosition.y, trainByIndex[currentTrainIndex + 1].transform.localPosition.z);
+
+                trainByIndex[currentTrainIndex + 1].transform.localPosition = trainByIndex[0].transform.localPosition;
+                trainByIndex[currentTrainIndex + 1].transform.localPosition = new Vector3(
+                    trainByIndex[currentTrainIndex + 1].transform.localPosition.x + (currentTrainIndex + 1) * trainInterval,
+                    trainByIndex[currentTrainIndex + 1].transform.localPosition.y,
+                    trainByIndex[currentTrainIndex + 1].transform.localPosition.z);
+            }
 
             for (int i = 0; i < mobCount; ++i)
             {
-                SpawnEnemy((ENEMY)Random.Range(0, (int)ENEMY.END));
+                SpawnEnemy((ENEMY)Random.Range(0, (int)ENEMY.BOSS));
             }
         }
     }
@@ -271,6 +309,35 @@ public class GameInstance : SingletonMonoBehaviour<GameInstance>
         boss.PhaseIn(0.5f);
         cameraController.SetTargetToPlayer(3f);
         playerController.SlowWalking();
+    }
+
+    public void PrepareBoss()
+    {
+        TimeManager.Instance.TimeScaleEaseOutSine(0.5f, 1f, 1.5f, 0.35f);
+        StartCoroutine(TranslateBoss(new Vector3(trainByIndex[engineIndex].transform.position.x - 2f, boss.transform.position.y + 1f, boss.transform.position.z), 5f));
+        VolumeManager.Instance.PaniniEffect(0.75f, 0.5f, 1f, 1f);
+    }
+    IEnumerator TranslateBoss(Vector3 destination, float duration)
+    {
+        Vector3 original = boss.transform.position;
+        float timeAcc = 0f;
+        while (timeAcc < duration)
+        {
+            timeAcc += Time.deltaTime;
+            float ratio = timeAcc / duration;
+            boss.transform.position = new Vector3(
+                EasingFunction.EaseInOutSine(original.x, destination.x, ratio),
+                EasingFunction.EaseInOutSine(original.y, destination.y, ratio),
+                EasingFunction.EaseInOutSine(original.z, destination.z, ratio));
+            yield return null;
+        }
+        boss.transform.position = destination;
+    }
+
+    public void PrepareOutside()
+    {
+        cameraController.WideView();
+        VolumeManager.Instance.DOFOutside();
     }
 
     private void SpawnEnemy(ENEMY type)
@@ -324,6 +391,8 @@ public class GameInstance : SingletonMonoBehaviour<GameInstance>
 
     public void ResetLevel()
     {
+        spawnRightTrain = true;
+        TrainEventController.Reset();
         switch (phase)
         {
             case PHASE.PHASE1:
@@ -340,6 +409,10 @@ public class GameInstance : SingletonMonoBehaviour<GameInstance>
                         npc.speech.Speak(2f, "자네 혹시...");
                         npc.speech.Speak(5f, "구르는 방법을 까먹은 것 아닌가?");
                         break;
+                    case 2:
+                        npc.speech.Speak(2f, "생명을 대가로 치루고서도...");
+                        npc.speech.Speak(5f, "계속 나아갈 가치가 있는가?");
+                        break;
                 }
                 break;
         }
@@ -348,7 +421,10 @@ public class GameInstance : SingletonMonoBehaviour<GameInstance>
         VolumeManager.Instance.OpenEye();
 
         trainByIndex.Clear();
+        railDeque.Clear();
         foreach (Transform child in trainObjects)
+            Destroy(child.gameObject);
+        foreach (Transform child in railObjects)
             Destroy(child.gameObject);
         foreach (Transform child in mobPool)
             Destroy(child.gameObject);
@@ -361,6 +437,15 @@ public class GameInstance : SingletonMonoBehaviour<GameInstance>
             trainByIndex[1].transform.localPosition = trainByIndex[0].transform.localPosition;
             trainByIndex[1].transform.localPosition = new Vector3(trainByIndex[1].transform.localPosition.x + 1 * trainInterval,
                 trainByIndex[1].transform.localPosition.y, trainByIndex[1].transform.localPosition.z);
+        }
+        if (railDeque.Count == 0)
+        {
+            railDeque.AddLast(Instantiate(railPrefab, railObjects));
+            railDeque.Last.Value.transform.localPosition = new Vector3(-railInterval, -0.5f, 0.8f);
+            railDeque.AddLast(Instantiate(railPrefab, railObjects));
+            railDeque.Last.Value.transform.localPosition = new Vector3(0f, -0.5f, 0.8f);
+            railDeque.AddLast(Instantiate(railPrefab, railObjects));
+            railDeque.Last.Value.transform.localPosition = new Vector3(railInterval, -0.5f, 0.8f);
         }
     }
 }

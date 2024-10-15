@@ -45,9 +45,12 @@ public class SpeechController : MonoBehaviour
         SetSpeechAlpha(maxSpeechAlpha);
         if (isSpeaking)
         {
-            StopCoroutine(currentNestedCoroutine);
-            StopCoroutine(currentNestedNestedCoroutine);
-            StopCoroutine(currentNestedNestedNestedCoroutine);
+            if (null != currentNestedCoroutine)
+              StopCoroutine(currentNestedCoroutine);
+            if (null != currentNestedNestedCoroutine)
+                StopCoroutine(currentNestedNestedCoroutine);
+            if (null != currentNestedNestedNestedCoroutine)
+                StopCoroutine(currentNestedNestedNestedCoroutine);
         }
         currentNestedCoroutine = StartCoroutine(ITextTypeWriter(input));
     }

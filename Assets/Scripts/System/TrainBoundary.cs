@@ -23,13 +23,9 @@ public class TrainBoundary : MonoBehaviour
         if (!other.gameObject.CompareTag("Player"))
             return;
 
-        if (other.transform.position.x < boundaryCenter)
-        {
-            GameInstance.Instance.EnterTrainRight();
-        }
-        else
-        {
+        if (GameInstance.Instance.playerController.transform.eulerAngles.y == 180f)
             GameInstance.Instance.EnterTrainLeft();
-        }
+        else
+            GameInstance.Instance.EnterTrainRight();
     }
 }

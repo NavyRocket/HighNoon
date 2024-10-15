@@ -123,6 +123,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: HitMobVFX
       objectReference: {fileID: 0}
+    - target: {fileID: 5207987601858127898, guid: 3407e378c048bb5438424b28c7740b48,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5207987601858127898, guid: 3407e378c048bb5438424b28c7740b48,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 653687067
+      objectReference: {fileID: 0}
     - target: {fileID: 6049523058040675291, guid: 3407e378c048bb5438424b28c7740b48,
         type: 3}
       propertyPath: looping

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class BossController : MonoBehaviour
@@ -19,11 +20,23 @@ public class BossController : MonoBehaviour
     [SerializeField] private float floatHeight = 0f;
     [SerializeField] private float floatAmplitude = 0.5f;
     [SerializeField] private float floatFrequency = 1f;
+
+    [SerializeField] private LaserController laser;
+
+    private bool hovering = true;
+    public bool canFire = false;
+    private bool wind = false;
     private float previousHeight = 0f;
+
+    private float hp = 20f;
+
+    Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
+
         material.SetFloat("_Split_Value", -phaseMaxHeight);
         material.SetColor("_Emission_Color", Color.black);
     }
@@ -31,13 +44,21 @@ public class BossController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        floatHeight = floatAmplitude * Mathf.Sin(floatFrequency * Time.time);
-        transform.position = new Vector3(transform.position.x, transform.position.y + floatHeight - previousHeight, transform.position.z);
-        transform.LookAt(GameInstance.Instance.playerController.transform.position);
-        previousHeight = floatHeight;
+        Hover();
 
-        if (Input.GetKeyDown(KeyCode.E))
-            PhaseIn();
+        if (wind)
+            rb.AddForce(new Vector3(-2f, 0f, 1f).normalized * 1.5f, ForceMode.Acceleration);
+    }
+
+    public void Damage(float damage)
+    {
+        if (damage <= 0f)
+            return;
+
+        hp -= damage;
+
+        if (hp <= 0f)
+            ThrowAway();
     }
 
     public void PhaseIn(float delay)
@@ -82,6 +103,37 @@ public class BossController : MonoBehaviour
 
     private void Hover()
     {
+        if (!hovering)
+            return;
 
+        floatHeight = floatAmplitude * Mathf.Sin(floatFrequency * Time.time);
+        transform.position = new Vector3(transform.position.x, transform.position.y + floatHeight - previousHeight, transform.position.z);
+        transform.LookAt(GameInstance.Instance.playerController.transform.position);
+        previousHeight = floatHeight;
+    }
+
+    public void FireLaser()
+    {
+        canFire = true;
+        StartCoroutine(IFireLaser());
+    }
+    IEnumerator IFireLaser()
+    {
+        while (canFire)
+        {
+            float randomCooldown = Random.Range(6f, 8f);
+            yield return new WaitForSeconds(randomCooldown);
+            laser.Fire();
+        }
+    }
+
+    private void ThrowAway()
+    {
+        hovering = false;
+        canFire = false;
+        wind = true;
+
+        rb.useGravity = true;
+        rb.isKinematic = false;
     }
 }
